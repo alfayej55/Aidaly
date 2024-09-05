@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "944226408020",
+    "project_id": "aidaly-db442",
+    "storage_bucket": "aidaly-db442.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944226408020:android:2a5ecf5c5423a72f70ffc1",
+        "android_client_info": {
+          "package_name": "com.aidaly.app.aidaly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvpQEs2ZK62AQcZhaK57fI0AdE2r5ww8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
