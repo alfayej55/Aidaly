@@ -71,59 +71,62 @@ class BoutiqueSetLocationScreen extends StatelessWidget {
            /// ......................... Button .............
 
            Expanded(
-             child: Column(
-               mainAxisAlignment: MainAxisAlignment.end,
-             
-               children: [
+             child: Align(
+               alignment: Alignment.bottomCenter,
+               child: Column(
+                 mainAxisAlignment: MainAxisAlignment.end,
 
-                 /// ......................... Set Location Button  .............
+                 children: [
 
-                 CustomButton(
-                   onTap: (){
-                     signUpCtrl.getCurrentLocation().then((value) => signUpCtrl.boutiqueSetLocation());
-                   },
-                   height: 58.h,
-                   width: 342.w,
-                   text: AppString.userCurrentLocationText.tr,
-                   textStyle: AppStyles.h7(
-                       color: AppColors.whiteColor,
-                       letterSpacing: 2
-                   ),
-                 ),
-                 SizedBox(height: Dimensions.paddingSizeSmall,),
+                   /// ......................... Set Location Button  .............
 
-                 /// ......................... Set For Map Location  Button  .............
-
-
-                 InkWell(
-                   onTap: (){
-
-                   },
-                   child: Container(
+                   CustomButton(
+                     onTap: (){
+                       signUpCtrl.getCurrentLocation().then((value) => signUpCtrl.boutiqueSetLocation());
+                     },
                      height: 58.h,
                      width: 342.w,
-                     decoration: BoxDecoration(
-                         borderRadius: BorderRadius.circular(18.r),
-                         border: Border.all(color: Get.theme.primaryColor)
-                     ),
-
-                     child: Row(
-                       mainAxisAlignment: MainAxisAlignment.center,
-                       children: [
-                         SvgPicture.asset(AppIcons.currentLocationIcon),
-                         SizedBox(width:Dimensions.fontSizeSmall),
-                         CustomText(
-                           text: AppString.setFromMapText.tr,
-                           fontWeight: FontWeight.w600,
-                           color: Get.theme.primaryColor,
-                           maxline: 9,
-                         ),
-
-                       ],
+                     text: AppString.userCurrentLocationText.tr,
+                     textStyle: AppStyles.h7(
+                         color: AppColors.whiteColor,
+                         letterSpacing: 2
                      ),
                    ),
-                 )
-               ],
+                   SizedBox(height: Dimensions.paddingSizeSmall,),
+
+                   /// ......................... Set For Map Location  Button  .............
+
+
+                   InkWell(
+                     onTap: (){
+
+                     },
+                     child: Container(
+                       height: 58.h,
+                       width: 342.w,
+                       decoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(18.r),
+                           border: Border.all(color: Get.theme.primaryColor)
+                       ),
+
+                       child: Row(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                         children: [
+                           SvgPicture.asset(AppIcons.currentLocationIcon),
+                           SizedBox(width:Dimensions.fontSizeSmall),
+                           CustomText(
+                             text: AppString.setFromMapText.tr,
+                             fontWeight: FontWeight.w600,
+                             color: Get.theme.primaryColor,
+                             maxline: 9,
+                           ),
+
+                         ],
+                       ),
+                     ),
+                   )
+                 ],
+               ),
              ),
            ),
           SizedBox(height: Dimensions.paddingSizeExtraLarge,),

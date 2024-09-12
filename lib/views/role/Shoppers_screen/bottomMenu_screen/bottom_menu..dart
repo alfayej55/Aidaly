@@ -95,7 +95,7 @@ class ClipPathClass extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
-    path.moveTo(0.0, size.height - (size.height * 8 / 11));
+    path.moveTo(0.0, size.height - (size.height * 8.h / 11.w));
     var secondControlPoint = Offset(size.width / 2, 0);
     var secondPoint = Offset(size.width, size.height - (size.height * 6 / 8));
     path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,

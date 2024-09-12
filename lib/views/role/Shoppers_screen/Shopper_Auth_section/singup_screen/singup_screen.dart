@@ -401,7 +401,7 @@ class ShopperSingUpScreen extends StatelessWidget {
                     text: TextSpan(
                         children: [
                           TextSpan(
-                              text: AppString.autherAccountText.tr,
+                              text: AppString.signInRouteText.tr,
                               style: AppStyles.h5(
                                   color: Get.theme.disabledColor
                               )

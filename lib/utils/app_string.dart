@@ -202,6 +202,7 @@ class AppString{
 
   static String subloginText='subloginText';
   static String autherAccountText='autherAccountText';
+  static String signInRouteText='signInRouteText';
   static String emaiUpText='emaiUpText';
   static String singUpText='singUpText';
   static String subsingUpText='subsingUpText';

@@ -56,11 +56,14 @@ class _BoutiqueBankInfoScreenState extends State<BoutiqueBankInfoScreen> {
       ),
 
       body: Obx(()=> Column(
+
+
+
         children: [
 
           ///  Bank Info Card
 
-          _boutiquewithCtrl.bankinfoLoading.value? CustomPageLoading():_boutiquewithCtrl.newBankList.isNotEmpty?  ListView.builder(
+          _boutiquewithCtrl.bankinfoLoading.value? CustomPageLoading(): ListView.builder(
               itemCount: _boutiquewithCtrl.newBankList.value.length,
               shrinkWrap: true,
               padding: EdgeInsets.symmetric(horizontal:24.w,vertical: 10.h),
@@ -70,24 +73,28 @@ class _BoutiqueBankInfoScreenState extends State<BoutiqueBankInfoScreen> {
                 return BoutiqueBankInfoCard(
                   bankModdel: data,
                 );
-              }):Text("No Bank"),
+              }),
 
 
           /// Add a New Bank Info Text
+    SizedBox(height: 20.h,),
 
-          GestureDetector(
-            onTap: (){
-              Get.toNamed(AppRoutes.boutiqueAddNewBankScreen);
-            },
-            child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 24.w),
-              child: Row(
-                children: [
-                  Icon(Icons.add,color: Get.theme.secondaryHeaderColor,),
-                  SizedBox(width: 5.w,),
-                  Text(AppString.addaNewBankInfoText.tr,
-                    style: AppStyles.customSize(size: 16,color: Get.theme.secondaryHeaderColor,fontWeight: FontWeight.w400),)
-                ],
+          Align(
+            alignment: Alignment.center,
+            child: GestureDetector(
+              onTap: (){
+                Get.toNamed(AppRoutes.boutiqueAddNewBankScreen);
+              },
+              child: Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 24.w),
+                child: Row(
+                  children: [
+                    Icon(Icons.add,color: Get.theme.secondaryHeaderColor,),
+                    SizedBox(width: 5.w,),
+                    Text(AppString.addaNewBankInfoText.tr,
+                      style: AppStyles.customSize(size: 16,color: Get.theme.secondaryHeaderColor,fontWeight: FontWeight.w400),)
+                  ],
+                ),
               ),
             ),
           )

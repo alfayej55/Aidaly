@@ -396,13 +396,13 @@ class DriverSingUpScreen extends StatelessWidget {
                       children: [
 
                         TextSpan(
-                            text: AppString.autherAccountText.tr,
+                            text: AppString.signInRouteText.tr,
                             style: AppStyles.h5(
                                 color: Get.theme.disabledColor
                             )
                         ),
                         TextSpan(
-                            text: " Login",
+                            text: "Login",
                             style: AppStyles.h3(
                                 color: Get.theme.primaryColor
                             )

@@ -73,7 +73,10 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
               children: [
                 Image.asset(AppImages.addToCartEmptyImage,fit: BoxFit.fitHeight,height: 200.h,width:double.infinity,),
               SizedBox(height: 30.h,),
-                Text('Your Cart is Empty',style: AppStyles.h3(),)
+                Text('Your Cart is empty,time start adding!',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppStyles.h3())
               ],
             ),
           )
@@ -371,7 +374,8 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
                  addTocartCtrl.distanceCalculation();
                  locationCont.clear();
                  Get.back();
-               }, text: AppString.update.tr))
+
+               },text: AppString.update.tr))
 
           ],
         ),

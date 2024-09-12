@@ -28,8 +28,11 @@
 
 
    "subloginText":"To continue to the app, please enter login information",
-   "autherAccountText":"I don’t have an account?",
+
+   "autherAccountText":"I don’t have an account? ",
+   "signInRouteText":"Already have an account? ",
    "emaiUpText":"Email",
+
    "singUpText":"Sign Up",
    "subsingUpText":"To part of the app, please enter the signup information",
    "passwordText":"Password",
@@ -46,11 +49,11 @@
   "addressText": "Address",
   "waitlistText": "Thank you for your interest in joining the DapperDriver community. We are currently expanding in your area! We will add you to our waitlist. See you soon!",
   "setLocationText": "Set Location",
-  "subsetLocationText": "Need to know your location to help your order delivery time",
+  "subsetLocationText": "Set location for delivery purposes",
   "userCurrentLocationText": "User Current Location",
   "setFromMapText": "Set From Map",
   "accountSuccessText": "Account Created Successfully",
-  "subaccountSuccessText": "Your account has been created nicely. Go ahead and explore the variety of items.",
+  "subaccountSuccessText": "Your account has been created nicely.",
   "homeScreenHeaderText": "Welcome to DapperDriver!",
   "addToCartText": "Add To Cart",
   "addreviewText": " Add Reviews",

@@ -69,52 +69,55 @@ class DriverSetLocationScreen extends StatelessWidget {
              SizedBox(height: Dimensions.paddingSizeExtraLarge,),
 
            Expanded(
-             child: Column(
-               mainAxisAlignment: MainAxisAlignment.end,
+             child: Align(
+               alignment: Alignment.bottomCenter,
+               child: Column(
+                 mainAxisAlignment: MainAxisAlignment.end,
 
-             ///>>>>>>>>>>>>>>>>>>>>>>>>>> User Current Location Button >>>>>>>>>>>>>
+               ///>>>>>>>>>>>>>>>>>>>>>>>>>> User Current Location Button >>>>>>>>>>>>>
 
-               children: [
-                 CustomButton(
-                   onTap: (){
-                     signUoCtrl.getCurrentLocation().then((value) => signUoCtrl.driverSetLocation());
-                   },
-                   height: 58.h,
-                   width: 342.w,
-                   text: AppString.userCurrentLocationText.tr,
-                   textStyle: AppStyles.h7(
-                       color: AppColors.whiteColor,
-                       letterSpacing: 2
+                 children: [
+                   CustomButton(
+                     onTap: (){
+                       signUoCtrl.getCurrentLocation().then((value) => signUoCtrl.driverSetLocation());
+                     },
+                     height: 58.h,
+                     width: 342.w,
+                     text: AppString.userCurrentLocationText.tr,
+                     textStyle: AppStyles.h7(
+                         color: AppColors.whiteColor,
+                         letterSpacing: 2
+                     ),
                    ),
-                 ),
-                 SizedBox(height: Dimensions.paddingSizeSmall,),
+                   SizedBox(height: Dimensions.paddingSizeSmall,),
 
-                 ///>>>>>>>>>>>>>>>>>>>>>>>>>> Set For Map Button >>>>>>>>>>>>>
+                   ///>>>>>>>>>>>>>>>>>>>>>>>>>> Set For Map Button >>>>>>>>>>>>>
 
-                 Container(
-                   height: 58.h,
-                   width: 342.w,
-                   decoration: BoxDecoration(
-                       borderRadius: BorderRadius.circular(18.r),
-                       border: Border.all(color: Get.theme.primaryColor)
-                   ),
-             
-                   child: Row(
-                     mainAxisAlignment: MainAxisAlignment.center,
-                     children: [
-                       SvgPicture.asset(AppIcons.currentLocationIcon),
-                       SizedBox(width:Dimensions.fontSizeSmall),
-                       CustomText(
-                         text: AppString.setFromMapText.tr,
-                         fontWeight: FontWeight.w600,
-                         color: Get.theme.primaryColor,
-                         maxline: 9,
-                       ),
-             
-                     ],
-                   ),
-                 )
-               ],
+                   Container(
+                     height: 58.h,
+                     width: 342.w,
+                     decoration: BoxDecoration(
+                         borderRadius: BorderRadius.circular(18.r),
+                         border: Border.all(color: Get.theme.primaryColor)
+                     ),
+
+                     child: Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children: [
+                         SvgPicture.asset(AppIcons.currentLocationIcon),
+                         SizedBox(width:Dimensions.fontSizeSmall),
+                         CustomText(
+                           text: AppString.setFromMapText.tr,
+                           fontWeight: FontWeight.w600,
+                           color: Get.theme.primaryColor,
+                           maxline: 9,
+                         ),
+
+                       ],
+                     ),
+                   )
+                 ],
+               ),
              ),
            ),
           SizedBox(height: Dimensions.paddingSizeExtraLarge,),

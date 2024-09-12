@@ -229,7 +229,8 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
               ///  Size Select
               SizedBox(height: Dimensions.paddingSizeSmall.h,),
               Text(
-                '${AppString.sizeText.tr} Provide (${addProductCtrl.selectType.value})',
+                  '${AppString.sizeText.tr}',
+              //  '${AppString.sizeText.tr} Provide (${addProductCtrl.selectType.value})',
                   style: AppStyles.h8(),
               ),
 
@@ -376,7 +377,8 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
                    ),
                 SizedBox(height: 15.h,),
                    Text(
-                     'Size (${type=="numeric"?"Numeric Size":"Alphabet Size"})',
+                     "Size",
+                    // 'Size (${type=="numeric"?"Numeric Size":"Alphabet Size"})',
                      style: AppStyles.h8(),
                    ),
                    SizedBox(height: Dimensions.paddingSizeSmall.h,),
