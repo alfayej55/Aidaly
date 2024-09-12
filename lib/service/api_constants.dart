@@ -78,6 +78,8 @@ class ApiConstant{
   static String  boutiqueOrderTrackEndPoint="/orderTracking/boutiqueTrackingDriver";
   static String  boutiqueOrderDeliveryEndPoint="/order/deliveriedOrder";
   static String  boutiqueShopperReviewEndPoint="/review/showAllReviewOfbotique";
+  static String  boutiqueAddNewBankEndPoint="/withdrow/addBankAccount";
+  static String  boutiqueShowBankOfuserEndPoint="/withdrow/showBankOfuser";
 
 
   ///>>>>>>>>>>>>>>>>>>>>>>>>>>> Driver End Point >>>>>>>>>>>>>>>>>>>

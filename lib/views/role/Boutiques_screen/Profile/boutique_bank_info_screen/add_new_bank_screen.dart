@@ -72,24 +72,25 @@ class BoutiqueAddNewBank extends StatelessWidget {
                 contentPaddingVertical: 15.h,
               ),
               SizedBox(height: Dimensions.paddingSizeSmall.h,),
-              Text(
-                AppString.withdrowAmoundText.tr,
-                style: AppStyles.h8(),
-              ),
-              SizedBox(height: Dimensions.paddingSizeSmall.h,),
-              CustomTextField(
-                controller: _boutiquewithCtrl.amoundCtrl,
-                contentPaddingVertical: 15.h,
-              ),
+              // Text(
+              //   AppString.withdrowAmoundText.tr,
+              //   style: AppStyles.h8(),
+              // ),
+              // SizedBox(height: Dimensions.paddingSizeSmall.h,),
+              // CustomTextField(
+              //   controller: _boutiquewithCtrl.amoundCtrl,
+              //   contentPaddingVertical: 15.h,
+              // ),
               SizedBox(height: Dimensions.paddingSizeSmall.h,),
           
               /// Add Button
           
               SizedBox(height: 40.h,),
              Obx(()=>  CustomButton(
-             loading: _boutiquewithCtrl.withdrowLoading.value,
+             loading: _boutiquewithCtrl.bankLoading.value,
                  onTap: (){
-                   _boutiquewithCtrl.withdrowAmound();
+                   _boutiquewithCtrl.addBank();
+                   //_boutiquewithCtrl.withdrowAmound();
                  },
                  text:"Withdrow"))
           

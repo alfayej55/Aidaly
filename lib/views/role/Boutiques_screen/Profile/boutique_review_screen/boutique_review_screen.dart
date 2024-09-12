@@ -72,10 +72,9 @@ class _BoutiqueShopperReviewScreenState
       body: Obx(() => _reviewCtrl.firstLoading.value
           ? CustomPageLoading():
       _reviewCtrl.boutiqueReviewModelList.isEmpty?
-      Center(child: Text("Shopper No Reviews",style:AppStyles.h3(color:AppColors.textColor),))
+      Center(child: Text("No Reviews",style:AppStyles.h3(color:AppColors.textColor),))
           : SingleChildScrollView(
             child: ListView.separated(
-
                 padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 15.h),
                 itemCount: _reviewCtrl.boutiqueReviewModelList.value.length + 1,
                 controller: _reviewCtrl.scrollController,

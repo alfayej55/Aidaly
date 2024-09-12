@@ -89,7 +89,7 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
             SizedBox(height: 20.h,),
             /// Earned Button
             CustomButton(onTap: (){
-              Get.toNamed(AppRoutes.driversAddNewBankScreen);
+             // Get.toNamed(AppRoutes.driversAddNewBankScreen);
             },
                 text: AppString.withdrawEarningsText.tr),
 

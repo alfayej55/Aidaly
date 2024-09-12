@@ -1,17 +1,33 @@
 import 'package:aidaly/helpers/route.dart';
 import 'package:aidaly/utils/app_Image.dart';
 import 'package:aidaly/utils/style.dart';
+import 'package:aidaly/views/base/custom_page_loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../../../controllers/Role/BoutiquesControllar/boutique_withdrow_controller.dart';
 import '../../../../../utils/app_string.dart';
 import 'innerWidget/bank_info_card.dart';
 
-class BoutiqueBankInfoScreen extends StatelessWidget {
+class BoutiqueBankInfoScreen extends StatefulWidget {
   const BoutiqueBankInfoScreen({super.key});
 
+  @override
+  State<BoutiqueBankInfoScreen> createState() => _BoutiqueBankInfoScreenState();
+}
+
+class _BoutiqueBankInfoScreenState extends State<BoutiqueBankInfoScreen> {
+  BoutiqueWithdroController _boutiquewithCtrl=Get.put(BoutiqueWithdroController());
+  
+  @override
+  void initState() {
+    _boutiquewithCtrl.newBankInfo();
+    // TODO: implement initState
+    super.initState();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,26 +55,29 @@ class BoutiqueBankInfoScreen extends StatelessWidget {
         ),
       ),
 
-      body: Column(
+      body: Obx(()=> Column(
         children: [
 
           ///  Bank Info Card
 
-         ListView.builder(
-            itemCount: 2,
+          _boutiquewithCtrl.bankinfoLoading.value? CustomPageLoading():_boutiquewithCtrl.newBankList.isNotEmpty?  ListView.builder(
+              itemCount: _boutiquewithCtrl.newBankList.value.length,
               shrinkWrap: true,
               padding: EdgeInsets.symmetric(horizontal:24.w,vertical: 10.h),
               primary: false,
               itemBuilder: (context,index){
-            return BoutiqueBankInfoCard();
-          }),
+                var data=_boutiquewithCtrl.newBankList.value[index];
+                return BoutiqueBankInfoCard(
+                  bankModdel: data,
+                );
+              }):Text("No Bank"),
+
 
           /// Add a New Bank Info Text
 
           GestureDetector(
             onTap: (){
               Get.toNamed(AppRoutes.boutiqueAddNewBankScreen);
-
             },
             child: Padding(
               padding:  EdgeInsets.symmetric(horizontal: 24.w),
@@ -74,7 +93,8 @@ class BoutiqueBankInfoScreen extends StatelessWidget {
           )
 
         ],
-      ),
+      )),
+      
     );
   }
 }
