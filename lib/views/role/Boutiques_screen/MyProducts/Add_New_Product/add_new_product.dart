@@ -455,19 +455,33 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
                        width: 100.w,
                          height: 50.h,
                          onTap: () {
-                           print(' Match ${getType(_sizeCtrl.text)}>>${addProductCtrl.selectType}');
-                         if(getType(_sizeCtrl.text)==addProductCtrl.selectType.value){
-                           addProductCtrl.productSizes.add({"size":_sizeCtrl.text,"inventoryQuantity":_quntityCtrl.text,"price":_priceCtrl.text});
+
+                           addProductCtrl.productSizes.add({
+                             "size": _sizeCtrl.text,
+                             "inventoryQuantity": _quntityCtrl.text,
+                             "price": _priceCtrl.text
+                           });
                            addProductCtrl.productSizes.refresh();
-                           print('Add Size>>>>>>${addProductCtrl.productSizes}');
                            Get.back();
-                         }else{
-                           showToastMessage.showMessage('No Match ${addProductCtrl.selectType}');
-                           print('No Match ${addProductCtrl.selectType}');
-                         }
 
-
-
+                           // print(' Match ${getType(
+                           //     _sizeCtrl.text)}>>${addProductCtrl.selectType}');
+                           // if (getType(_sizeCtrl.text) ==
+                           //     addProductCtrl.selectType.value) {
+                           //   addProductCtrl.productSizes.add({
+                           //     "size": _sizeCtrl.text,
+                           //     "inventoryQuantity": _quntityCtrl.text,
+                           //     "price": _priceCtrl.text
+                           //   });
+                           //   addProductCtrl.productSizes.refresh();
+                           //   print('Add Size>>>>>>${addProductCtrl
+                           //       .productSizes}');
+                           //   Get.back();
+                           // } else {
+                           //   showToastMessage.showMessage(
+                           //       'No Match ${addProductCtrl.selectType}');
+                           //   print('No Match ${addProductCtrl.selectType}');
+                           // }
                          }, text: AppString.addText.tr),
                    ),
                  ],

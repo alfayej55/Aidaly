@@ -234,8 +234,6 @@ class WishListController extends GetxController {
     }
 
 
-
-
   }
 
 }

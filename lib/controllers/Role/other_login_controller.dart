@@ -72,7 +72,7 @@ class OtherLoginController extends GetxController{
 
 /// Apple Sign in
 
-  // Future<void> signInWithApple(String role) async {
+   // Future<void> signInWithApple(String role) async {
   //   if (Platform.isIOS) {
   //     try {
   //       // Request Apple ID credentials

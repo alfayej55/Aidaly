@@ -39,15 +39,13 @@ class RegisterControllar extends GetxController{
   RxString selectedDate='Select Date Time'.obs;
 
 ///  ShopperModel sign up
+
   void shopperSingUp()async{
-
      signUpLoading.value=true;
-
      NotificationHelper.getFcmToken();
      var fcmToken=await PrefsHelper.getString(AppConstants.fcmToken);
 
-    Map<String, String> body =
-    {
+    Map<String, String> body = {
       'name':fullNameCtrl.text,
       'email':emailCtrl.text,
       'password':passwordCtrl.text,
@@ -101,7 +99,6 @@ class RegisterControllar extends GetxController{
 
 
   }
-
 
  /// ShopperModel Otp Verification
   var verificationLoading=false.obs;
@@ -202,8 +199,9 @@ class RegisterControllar extends GetxController{
     }
   }
 
-/// User Current Location
 
+
+/// User Current Location
  Future getCurrentLocation() async {
     try {
       LocationPermission permission = await Geolocator.requestPermission();

@@ -83,9 +83,9 @@ ThemeData light({Color color = const Color(0xFF1E66CA)}) => ThemeData(
 OutlineInputBorder enableBorder() {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(15.r),
-      borderSide: BorderSide(
-    color: AppColors.primaryColor.withOpacity(0.1),
-  ),
+    borderSide: BorderSide(
+      color: AppColors.primaryColor.withOpacity(0.1),
+    ),
 
 
   );

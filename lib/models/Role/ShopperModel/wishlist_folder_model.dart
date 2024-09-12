@@ -2,8 +2,6 @@
 
 import 'package:aidaly/models/Role/ShopperModel/shop_subcategori_model.dart';
 
-
-
 class WishListFolderModel {
   WishlistId? wishlistId;
   String? id;

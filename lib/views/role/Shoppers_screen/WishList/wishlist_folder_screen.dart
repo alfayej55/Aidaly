@@ -152,9 +152,15 @@ class _WishListFolderScreenState extends State<WishListFolderScreen> {
                           itemBuilder: (context, index) {
                             var data =
                                 _wishListCtrl.wishListFolderModel.value[index];
-                            return ProductCart(
-                                isWishList: true,
-                                product: data.wishlistId!.productId);
+                            return InkWell(
+                              onTap: (){
+                                print("Size>>>${data.wishlistId!.productId!.variants![0].size!}");
+                               Get.toNamed(AppRoutes.productDetailsScreen,arguments: data.wishlistId!.productId!.id!,parameters: {"size":data.wishlistId!.productId!.variants![0].size!});
+                              },
+                              child: ProductCart(
+                                  isWishList: true,
+                                  product: data.wishlistId!.productId),
+                            );
                           },
                         ),
                 )

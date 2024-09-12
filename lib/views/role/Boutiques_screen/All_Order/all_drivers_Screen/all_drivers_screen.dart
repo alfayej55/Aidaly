@@ -3,6 +3,7 @@ import 'package:aidaly/helpers/route.dart';
 import 'package:aidaly/service/api_constants.dart';
 import 'package:aidaly/utils/app_string.dart';
 import 'package:aidaly/views/base/custom_page_loading.dart';
+import 'package:aidaly/views/base/show_toast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -63,24 +64,27 @@ class _AllDriversScreenState extends State<AllDriversScreen> {
         ),
       ),
 
-      body:Obx(() => inprogressCtrl.driverLoading.value?Center(child: CustomPageLoading()): SingleChildScrollView(
-        child: Column(
-          children: [
-        
-            /// Driver Section
-        
-            ListView.separated(
+      body:Obx(() => inprogressCtrl.driverLoading.value?Center(child: CustomPageLoading()): Column(
+        children: [
+
+
+          /// Driver Section
+
+          Expanded(
+            child: ListView.separated(
               itemCount: inprogressCtrl.allDriverModel.value.length,
               shrinkWrap: true,
               primary: false,
               padding: EdgeInsets.symmetric(horizontal: 24.w,vertical: 15.h),
               itemBuilder: (context,index){
                 var data=inprogressCtrl.allDriverModel.value[index];
+                inprogressCtrl.drivarId.value=inprogressCtrl.allDriverModel.value[0].id.toString();
+                print('Index>>${inprogressCtrl.drivarId.value}');
                 return Obx(() => ListTile(
                   contentPadding: EdgeInsets.zero,
                   titleTextStyle: AppStyles.customSize(size: 16,color: AppColors.textColor),
                   subtitleTextStyle: AppStyles.customSize(size: 14,fontWeight: FontWeight.w500,color: AppColors.secandaryTextColor),
-        
+            
                   /// Driver Images
                   leading: CustomNetworkImage(
                     imageUrl:"${ApiConstant.imageBaseUrl}${data.image!.publicFileUrl}",
@@ -88,9 +92,9 @@ class _AllDriversScreenState extends State<AllDriversScreen> {
                     height: 55.h,
                     width:55.w,
                     boxShape: BoxShape.circle,
-        
+            
                   ),
-        
+            
                   /// Driver Name
                   title: Text(data.name!.toUpperCase()),
                   subtitle: Column(
@@ -127,24 +131,29 @@ class _AllDriversScreenState extends State<AllDriversScreen> {
                     inprogressCtrl.drivarId.value=data.id.toString();
                     print('Index>>${inprogressCtrl.currentIndex.value}');
                     print('Driver id>>${inprogressCtrl.drivarId.value}');
+
                   },
-        
+            
                 ));
               }, separatorBuilder: (context,index){
-        
+            
               return Divider(
                 color: Get.theme.dividerColor.withOpacity(0.2),
               );
             },
-        
+            
             ),
-        
-            Align(
+          ),
+
+          Expanded(
+            child: Align(
               alignment: Alignment.bottomCenter,
               child:inprogressCtrl.assignToDriverLoading.value ?CustomPageLoading(): CustomButton(
                 padding: EdgeInsets.only(bottom: 15.h),
                 onTap: (){
-                 inprogressCtrl.ordertAssignToDriver(inprogressId);
+
+                  inprogressCtrl.ordertAssignToDriver(inprogressId);
+
                 },
                 height: 58.h,
                 width: 342.w,
@@ -154,9 +163,9 @@ class _AllDriversScreenState extends State<AllDriversScreen> {
                     letterSpacing: 2
                 ),
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       )),
     );
   }
