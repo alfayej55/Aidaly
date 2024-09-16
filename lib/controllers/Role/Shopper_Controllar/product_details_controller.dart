@@ -236,6 +236,12 @@ class ProduceDetailsController extends GetxController{
       showReplayLoading(false);
       update();
     }
+    else if(response.statusCode==404){
+      commentReplayModel.clear();
+      commentReplayModel.refresh();
+      showReplayLoading(false);
+      update();
+    }
     else{
       ApiChecker.checkApi(response);
       showReplayLoading(false);

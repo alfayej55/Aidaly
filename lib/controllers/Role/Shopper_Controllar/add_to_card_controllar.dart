@@ -113,7 +113,6 @@ class AddToCartControllar extends GetxController{
   }
 
   totalPriceCalculation()async{
-
     var _DemoTotalPrice=0.0;
     cart.forEach((element) {
       var _ItemTotalPrice=element.productPrice!*element.quantity!.value;
@@ -271,8 +270,6 @@ class AddToCartControllar extends GetxController{
          distanceCalculation();
           update();
   }
-
-
 
   /// Give a String Address Update Delivery Address using an address string
 

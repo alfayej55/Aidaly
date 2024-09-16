@@ -31,15 +31,6 @@ class _CommentSectionState extends State<CommentSection> {
 
   var revirewShow=false;
 
-  List replayList=[
-    "asdkhkah",
-    "asdkhkah",
-    "asdkhkah",
-    "asdkhkah"
-  ];
-
-
-
   @override
   void initState() {
     productDetailsCtrl.shopProduComment(widget.id);
@@ -207,33 +198,39 @@ class _CommentSectionState extends State<CommentSection> {
       isScrollControlled: true,
 
       builder: (BuildContext context) {
-        return Obx(()=>Container(
-          padding: EdgeInsets.only( bottom: MediaQuery.of(context).viewInsets.bottom),
-          height: double.infinity,
-          color: Colors.white,
-          child:Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(height: 55.h,),
-                productDetailsCtrl.showReplayLoading.value?Center(child: CustomPageLoading()):  ListView.builder(
-                  shrinkWrap: true,
-                  primary: false,
-                  itemCount: productDetailsCtrl.commentReplayModel.length,
-                    itemBuilder: (context,index){
-                  var data=productDetailsCtrl.commentReplayModel[index];
-                  return Container(
-                    child: Column(
-                      children: [
-                        Row(
+        return Obx(()=>Padding(
+          padding: EdgeInsets.only(top:24.h),
+          child: Container(
+            padding: EdgeInsets.only( bottom: MediaQuery.of(context).viewInsets.bottom),
+            height: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(topRight: Radius.circular(15.r),topLeft: Radius.circular(15.r)),
+              color: Colors.white,
+            ),
+
+            child:Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(height: 55.h,),
+                  productDetailsCtrl.showReplayLoading.value?Center(child: CustomPageLoading()): productDetailsCtrl.commentReplayModel.isEmpty?Center(child: Align(
+                     alignment: Alignment.center,
+                      child: Text('No Replay',style: AppStyles.h3(),)),) :ListView.builder(
+                    shrinkWrap: true,
+                    primary: false,
+                    itemCount: productDetailsCtrl.commentReplayModel.length,
+                      itemBuilder: (context,index){
+                    var data=productDetailsCtrl.commentReplayModel[index];
+                    return Padding(
+                      padding: EdgeInsets.only(top: 16.h),
+                      child: Container(
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-
                             /// ..................  Review parson Image.................>
-
                             CustomNetworkImage(
                               width: 45.w,
                               height: 45.h,
@@ -242,7 +239,6 @@ class _CommentSectionState extends State<CommentSection> {
                               boxShape: BoxShape.circle,
                             ),
                             SizedBox(width: Dimensions.paddingSizeDefault.h,),
-
                             Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -267,53 +263,52 @@ class _CommentSectionState extends State<CommentSection> {
                           ],
 
                         ),
+                      ),
+                    );
+                  }),
 
-                      ],
-                    ),
-                  );
-                }),
+                  Spacer(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    child: Row(
+                      children: [
+                        ///>>>>>>>>>>>>>>>>>> Text Field >>>>>>>>>>>>>>>>>>>>
+                        Expanded(
+                            child: CustomTextField(
+                                contentPaddingVertical: 15.h,
+                                hintText: 'Type Replay',
+                                controller: productDetailsCtrl.replayCntrl
+                            )),
 
-                Spacer(),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20),
-                  child: Row(
-                    children: [
-                      ///>>>>>>>>>>>>>>>>>> Text Field >>>>>>>>>>>>>>>>>>>>
-                      Expanded(
-                          child: CustomTextField(
-                              contentPaddingVertical: 15.h,
-                              hintText: 'Type Replay',
-                              controller: productDetailsCtrl.replayCntrl
-                          )),
+                        ///>>>>>>>>>>>>>>>>>> Sent Button >>>>>>>>>>>>>>>>>>>>
+                        InkWell(
+                          onTap: (){
+                            productDetailsCtrl.commentReplay(id);
 
-                      ///>>>>>>>>>>>>>>>>>> Sent Button >>>>>>>>>>>>>>>>>>>>
-                      InkWell(
-                        onTap: (){
-                          productDetailsCtrl.commentReplay(id);
+                          },
+                          child: Container(
 
-                        },
-                        child: Container(
-
-                          height: 55.h,
-                          width: 52.w,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10).r,
-                            border: Border.all(
-                                color: Get.theme.primaryColor.withOpacity(0.2)),
-                          ),
-                          child: productDetailsCtrl.replayLoading.value?CustomPageLoading(): Center(
-                            child: SvgPicture.asset(
-                              AppIcons.sentIcon,
-                              height: 24.h,
-                              width: 24,
+                            height: 55.h,
+                            width: 52.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10).r,
+                              border: Border.all(
+                                  color: Get.theme.primaryColor.withOpacity(0.2)),
+                            ),
+                            child: productDetailsCtrl.replayLoading.value?CustomPageLoading(): Center(
+                              child: SvgPicture.asset(
+                                AppIcons.sentIcon,
+                                height: 24.h,
+                                width: 24,
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ));
