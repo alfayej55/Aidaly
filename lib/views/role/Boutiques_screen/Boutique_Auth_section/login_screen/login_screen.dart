@@ -143,49 +143,49 @@ class BoutiqueLoginScreen extends StatelessWidget {
                     letterSpacing: 2
                 ),
               ),
-              SizedBox(height: 20.h,),
-
-              ///================ Divider Button ==================>
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: 153.w,
-                    child:  Divider(
-                      color: Get.theme.disabledColor,
-                    ),
-                  ),
-
-                  CustomText(
-                    text: 'Or',
-                    fontsize: 14.sp,
-                    fontWeight: FontWeight.w700,
-                    color: Get.theme.disabledColor,
-                  ),
-                  SizedBox(
-                    width: 153.w,
-                    child: Divider(
-                      color: Get.theme.disabledColor,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20.h,),
-              Obx(()=> Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SocialLoginButton(icon: AppIcons.facebookIcon,),
-                  InkWell(
-                      onTap: (){
-                        _otherLogingCtrl.googleLogin("boutique");
-                      },
-                      child: SocialLoginButton(
-                        loading: _otherLogingCtrl.googleLoginLoading.value,
-                        icon: AppIcons.googleIcon,)),
-                  SocialLoginButton(icon: AppIcons.appleIcon,)
-                ],
-              ),),
+              // SizedBox(height: 20.h,),
+              //
+              // ///================ Divider Button ==================>
+              //
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     SizedBox(
+              //       width: 153.w,
+              //       child:  Divider(
+              //         color: Get.theme.disabledColor,
+              //       ),
+              //     ),
+              //
+              //     CustomText(
+              //       text: 'Or',
+              //       fontsize: 14.sp,
+              //       fontWeight: FontWeight.w700,
+              //       color: Get.theme.disabledColor,
+              //     ),
+              //     SizedBox(
+              //       width: 153.w,
+              //       child: Divider(
+              //         color: Get.theme.disabledColor,
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(height: 20.h,),
+              // Obx(()=> Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     SocialLoginButton(icon: AppIcons.facebookIcon,),
+              //     InkWell(
+              //         onTap: (){
+              //           _otherLogingCtrl.googleLogin("boutique");
+              //         },
+              //         child: SocialLoginButton(
+              //           loading: _otherLogingCtrl.googleLoginLoading.value,
+              //           icon: AppIcons.googleIcon,)),
+              //     SocialLoginButton(icon: AppIcons.appleIcon,)
+              //   ],
+              // ),),
               ///================ Sing up  ==================>
               SizedBox(height: 50.h,),
 

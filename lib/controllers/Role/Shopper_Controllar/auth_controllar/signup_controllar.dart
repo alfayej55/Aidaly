@@ -74,7 +74,12 @@ class RegisterControllar extends GetxController{
 
       Fluttertoast.showToast(msg:response.body['message']);
 
-      Get.toNamed(AppRoutes.shopperverificationScreen,arguments:emailCtrl.text);
+      await  PrefsHelper.setString(AppConstants.bearerToken, response.body['data']['attributes']['accessToken']);
+      await PrefsHelper.setString(AppConstants.userId, response.body['data']['attributes']['id']);
+      Get.toNamed(AppRoutes.locationScreen);
+      // Get.toNamed(AppRoutes.shopperverificationScreen,arguments:emailCtrl.text);
+
+
       fullNameCtrl.clear();
       emailCtrl.clear();
       passwordCtrl.clear();

@@ -172,21 +172,21 @@ class DriverLoginScreen extends StatelessWidget {
               ),
               SizedBox(height: 20.h,),
 
-              Obx(()=> Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SocialLoginButton(icon: AppIcons.facebookIcon,),
-                  InkWell(
-                      onTap: (){
-                        _otherLogingCtrl.googleLogin("driver");
-
-                      },
-                      child: SocialLoginButton(
-                        loading: _otherLogingCtrl.googleLoginLoading.value,
-                        icon: AppIcons.googleIcon,)),
-                  SocialLoginButton(icon: AppIcons.appleIcon,)
-                ],
-              ),),
+              // Obx(()=> Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     SocialLoginButton(icon: AppIcons.facebookIcon,),
+              //     InkWell(
+              //         onTap: (){
+              //           _otherLogingCtrl.googleLogin("driver");
+              //
+              //         },
+              //         child: SocialLoginButton(
+              //           loading: _otherLogingCtrl.googleLoginLoading.value,
+              //           icon: AppIcons.googleIcon,)),
+              //     SocialLoginButton(icon: AppIcons.appleIcon,)
+              //   ],
+              // ),),
 
               ///================ Sing up  ==================>
 
