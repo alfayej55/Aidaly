@@ -10,6 +10,7 @@ import '../../../helpers/prefs_helper.dart';
 import '../../../helpers/push_notification_helpers.dart';
 import '../../../models/Role/ShopperModel/shop_model.dart';
 import '../../../models/Role/ShopperModel/shopper_home_model.dart';
+import '../../../models/Role/profile_model.dart';
 import '../../../service/api_check.dart';
 import '../../../service/api_client.dart';
 import '../../../service/api_constants.dart';
@@ -164,19 +165,19 @@ class HomeController extends GetxController  implements GetxService{
 
   /// Product Search
 
-  RxList<ShopperHomeModel> productSearchListModel=<ShopperHomeModel>[].obs;
+  RxList<ProfileModel> profileListModel=<ProfileModel>[].obs;
   var searchLoading=false.obs;
 
   searchProduct(String productName)async{
     searchLoading(true);
     var response=await ApiClient.getData('${ApiConstant.shopperSearchEndPoint}?search=$productName');
     if(response.statusCode==200){
-      productSearchListModel.value= List<ShopperHomeModel>.from(response.body['data']['attributes'].map((x) => ShopperHomeModel.fromJson(x)));
+      profileListModel.value= List<ProfileModel>.from(response.body['data']['attributes'].map((x) => ProfileModel.fromJson(x)));
       searchLoading(false);
       update();
     } else if(response.statusCode==404){
-      productSearchListModel.clear();
-      productSearchListModel.refresh();
+      profileListModel.clear();
+      profileListModel.refresh();
       searchLoading(false);
     }
     else{

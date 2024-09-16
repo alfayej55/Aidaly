@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 
+import '../../../models/Role/ShopperModel/comment_replay_model.dart';
 import '../../../models/Role/ShopperModel/product_details_model.dart';
 import '../../../models/Role/ShopperModel/product_details_review_model.dart';
 import '../../../service/api_check.dart';
@@ -24,6 +25,8 @@ class ProduceDetailsController extends GetxController{
   TextEditingController heightCtrl = TextEditingController();
   TextEditingController widthCtrl = TextEditingController();
   TextEditingController reviewCtrl = TextEditingController();
+
+  TextEditingController replayCntrl=TextEditingController();
      var loading =false.obs;
   ImagePicker picker=ImagePicker();
   RxList<String> images = <String>[].obs;
@@ -42,6 +45,7 @@ class ProduceDetailsController extends GetxController{
 
   Rx<ProductDetailsModel> productDetailsModel=ProductDetailsModel().obs;
   RxList<ProductCommentModel> productCommentModel=<ProductCommentModel>[].obs;
+  RxList<CommentReplayModel> commentReplayModel=<CommentReplayModel>[].obs;
 
 /// Shopper Product Details
    shopProductDetails(String productId,String size)async{
@@ -192,7 +196,51 @@ class ProduceDetailsController extends GetxController{
        ApiChecker.checkApi(response);
      }
   }
-  
+
+  /// Comment Replay
+
+  var replayLoading=false.obs;
+
+   commentReplay(String reviewId) async{
+     replayLoading(true);
+
+    var body={
+      "comment":replayCntrl.text,
+      "reviewId":reviewId
+    };
+    var response=await ApiClient.postData(ApiConstant.commentReplayEndPoint, jsonEncode(body));
+    if(response.statusCode==200){
+      showReplay(reviewId);
+      commentReplayModel.refresh();
+      replayLoading(false);
+      replayCntrl.clear();
+      update();
+
+    }else{
+      replayLoading(false);
+      ApiChecker.checkApi(response);
+      update();
+   }
+  }
+
+  /// Show Replay
+
+  var showReplayLoading=false.obs;
+
+  showReplay(String productId)async{
+    showReplayLoading(true);
+    var response=await ApiClient.getData('${ApiConstant.commentReplayShowEndPoint}?reviewId=$productId');
+    if(response.statusCode==200){
+      commentReplayModel.value= List<CommentReplayModel>.from(response.body['data']['attributes'].map((x) => CommentReplayModel.fromJson(x)));
+      commentReplayModel.refresh();
+      showReplayLoading(false);
+      update();
+    }
+    else{
+      ApiChecker.checkApi(response);
+      showReplayLoading(false);
+    }
+  }
   
 
   /// Get Multiple Image

@@ -11,19 +11,24 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../../../../controllers/Role/Shopper_Controllar/wishlist_controller.dart';
 import '../../../../../models/Role/ShopperModel/shopper_home_model.dart';
 import '../../../../../utils/app_Image.dart';
 import '../../../../../utils/app_colors.dart';
 import '../../../../../utils/app_icons.dart';
+import '../../../../../utils/app_string.dart';
 import '../../../../../utils/style.dart';
 import '../../../../base/add_product_button.dart';
 import '../../../../base/cache_network_image.dart';
+import '../../../../base/custom_button.dart';
+import '../../../../base/custom_text_field.dart';
 
 class FeedCart extends StatelessWidget {
 
   ShopperHomeModel? homeModel;
    final Function()? onTap;
    FeedCart({super.key,required this.homeModel,this.onTap});
+  WishListController _wishListCtrl = Get.put(WishListController());
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +64,9 @@ class FeedCart extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: (){
-                          Get.toNamed(AppRoutes.productDetailsScreen,arguments: homeModel!.id!,parameters: {"size":homeModel!.variants![0].size!});
+                          //_wishListCtrl.selectedList.add(homeModel!.id);
+                          showCreateFeild(context);
+                        //  Get.toNamed(AppRoutes.productDetailsScreen,arguments: homeModel!.id!,parameters: {"size":homeModel!.variants![0].size!});
                         },
                         child: AddProductButton(
                           height: 50.h,
@@ -184,5 +191,61 @@ class FeedCart extends StatelessWidget {
 
       ),
     );
+  }
+
+  showCreateFeild(BuildContext context) {
+   // print('CheckWishList length>>${_wishListCtrl.selectedList.value.length}');
+
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: Get.theme.cardColor,
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  height: 100.h,
+                  width: 100.w,
+                  decoration: BoxDecoration(
+                      color: Get.theme.primaryColor.withOpacity(0.1),
+                      shape: BoxShape.circle),
+                  child: Center(
+                    child: SvgPicture.asset(
+                      AppIcons.saveIcon,
+                      height: 57.h,
+                      width: 57.w,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: Dimensions.paddingSizeSmall,
+                ),
+                Text(
+                  AppString.collectionTitleText.tr,
+                  style: AppStyles.customSize(size: 18.8),
+                ),
+                SizedBox(
+                  height: Dimensions.paddingSizeSmall,
+                ),
+                CustomTextField(
+                  contentPaddingVertical: 15.h,
+                  controller: _wishListCtrl.createWishListCtrl,
+                  filColor: Colors.transparent,
+                ),
+                SizedBox(
+                  height: Dimensions.paddingSizeExtraLarge,
+                ),
+                CustomButton(
+                  loading: _wishListCtrl.wishListLoading.value,
+                  onTap: () {
+                    _wishListCtrl.wishListCollectionCreate();
+                  },
+                  text: AppString.addText.tr,
+                )
+              ],
+            ),
+          );
+        });
   }
 }

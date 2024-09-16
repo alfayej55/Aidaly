@@ -86,18 +86,20 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
           
               SizedBox(height: 30.h),
-             _searchCtrl.searchLoading.value?CustomPageLoading(): _searchCtrl.productSearchListModel.isNotEmpty?  ListView.builder(
+             _searchCtrl.searchLoading.value?CustomPageLoading(): _searchCtrl.profileListModel.isNotEmpty?  ListView.builder(
                  shrinkWrap: true,
                  primary: false,
-                 itemCount: _searchCtrl.productSearchListModel.length,
+                 itemCount: _searchCtrl.profileListModel.length,
                  itemBuilder: (context,index){
-                   var data=_searchCtrl.productSearchListModel[index];
+                   var data=_searchCtrl.profileListModel[index];
                    return   Padding(
                      padding:  EdgeInsets.symmetric(vertical: 8.h),
                      child: InkWell(
                        onTap: (){
-                         Get.toNamed(AppRoutes.productDetailsScreen,arguments: data.id!,parameters: {"size":data.variants![0].size!});
-          
+
+                         Get.toNamed(AppRoutes.boutiqueScreen,
+                             arguments: data.id!);
+                        // Get.toNamed(AppRoutes.productDetailsScreen,arguments: data.id!,parameters: {"size":data.variants![0].size!});
                        },
                        child: Container(
                            decoration: BoxDecoration(
@@ -107,13 +109,14 @@ class _SearchScreenState extends State<SearchScreen> {
                            child: ListTile(
                              contentPadding: EdgeInsets.all(8),
                              leading: CustomNetworkImage(
-                               imageUrl:"${ApiConstant.imageBaseUrl}${data.images![0].publicFileUrl}",
-                               height: 85.h,
-                               width: 85.w,
-                               borderRadius: BorderRadius.circular(8.r),
+                               imageUrl:"${ApiConstant.imageBaseUrl}${data.image!.publicFileUrl}",
+                               height: 48.h,
+                               width: 48.w,
+                              boxShape: BoxShape.circle,
+                              // borderRadius: BorderRadius.circular(8.r),
                              ),
-                             title: Text('${data.name}',style: AppStyles.h3(color: AppColors.textColor),),
-                             subtitle:Text('\$ ${data.variants![0].price}',style: AppStyles.h3(color: AppColors.primaryColor),),
+                             title: Text('${data.name}',style: AppStyles.h4(color: AppColors.textColor),),
+                             subtitle:Text('${data.email}',style: AppStyles.h6(color: AppColors.primaryColor),),
           
           
                            )

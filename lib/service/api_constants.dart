@@ -55,6 +55,8 @@ class ApiConstant{
   static String  wishListFolderEndPoint="/iswish/showWishlistFolderByName";
   static String  orderQuntityCheckEndPoint="/notifaction/createOrderItmes";
   static String  commentLikeEndPoint="/review/makeLike";
+  static String  commentReplayEndPoint="/review/makeComment";
+  static String  commentReplayShowEndPoint="/review/showComments";
 
 
 
