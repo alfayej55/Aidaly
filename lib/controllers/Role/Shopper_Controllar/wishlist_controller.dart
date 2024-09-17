@@ -225,6 +225,7 @@ class WishListController extends GetxController {
 
     var response=await ApiClient.getData('${ApiConstant.wishListFolderEndPoint}?name=$folderName');
     if(response.statusCode==200){
+
       wishListFolderModel.value= List<WishListFolderModel>.from(response.body['data']['attributes']["collectionOfProducts"]!.map((x) => WishListFolderModel.fromJson(x)));
       collectionType=response.body["data"]["attributes"]["collectionType"];
       print("Collection Type>>>$collectionType");
@@ -234,8 +235,10 @@ class WishListController extends GetxController {
     else if(response.statusCode==404){
       folderLoading(false);
       update();
+
     }
     else{
+
       debugPrint('Error');
       ApiChecker.checkApi(response);
       wishListFolderLoading(false);
