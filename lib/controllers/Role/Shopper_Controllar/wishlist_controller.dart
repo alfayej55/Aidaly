@@ -150,7 +150,7 @@ class WishListController extends GetxController {
 
   var wishListLoading = false.obs;
 /// WishList Folder Create
-   wishListCollectionCreate() async {
+   wishListCollectionCreate(String type) async {
     wishListLoading(true);
     print('CollectionListCheck>>${selectedList.value}');
     List<Map<String, String>> collectionOfProducts = [];
@@ -158,13 +158,20 @@ class WishListController extends GetxController {
     for (var data in selectedList.value) {
       if (data != null) {
         // Ensure data is not null
-        collectionOfProducts.add({"wishlistId": data});
+
+        if(type=='collection'){
+          collectionOfProducts.add({"collection": data});
+        }else{
+          collectionOfProducts.add({"wishlistId": data});
+        }
+
       }
     }
 
     var body = {
       "wishlistTitle": createWishListCtrl.text,
       "collectionOfProducts": collectionOfProducts,
+      "collectionType":type
     };
 
     var response = await ApiClient.postData(
@@ -213,11 +220,14 @@ class WishListController extends GetxController {
 
     var wishListFolderLoading=false.obs;
 
+    var collectionType="";
    wishListFolder(String folderName)async{
 
     var response=await ApiClient.getData('${ApiConstant.wishListFolderEndPoint}?name=$folderName');
     if(response.statusCode==200){
       wishListFolderModel.value= List<WishListFolderModel>.from(response.body['data']['attributes']["collectionOfProducts"]!.map((x) => WishListFolderModel.fromJson(x)));
+      collectionType=response.body["data"]["attributes"]["collectionType"];
+      print("Collection Type>>>$collectionType");
       wishlistFolderName.refresh();
       update();
     }

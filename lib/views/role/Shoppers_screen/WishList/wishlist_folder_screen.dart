@@ -150,16 +150,16 @@ class _WishListFolderScreenState extends State<WishListFolderScreen> {
                           mainAxisSpacing: 30.h,
                           crossAxisSpacing: 22.w,
                           itemBuilder: (context, index) {
-                            var data =
-                                _wishListCtrl.wishListFolderModel.value[index];
+                            var data = _wishListCtrl.wishListFolderModel.value[index];
                             return InkWell(
                               onTap: (){
+
                                // print("Size>>>${data.wishlistId!.productId!.variants![0].size!}");
                                Get.toNamed(AppRoutes.productDetailsScreen,arguments: data.wishlistId!.productId!.id!,parameters: {"size":data.wishlistId!.productId!.variants![0].size!});
                               },
                               child: ProductCart(
                                   isWishList: true,
-                                  product: data.wishlistId!.productId),
+                                  product:_wishListCtrl.collectionType=="collection" ?data.collection: data.wishlistId!.productId),
                             );
                           },
                         ),

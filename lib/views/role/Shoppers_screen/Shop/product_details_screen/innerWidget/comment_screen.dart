@@ -31,6 +31,7 @@ class _CommentSectionState extends State<CommentSection> {
 
   var revirewShow=false;
 
+
   @override
   void initState() {
     productDetailsCtrl.shopProduComment(widget.id);
@@ -83,7 +84,6 @@ class _CommentSectionState extends State<CommentSection> {
                       boxShape: BoxShape.circle,
                     ),
                     SizedBox(width: Dimensions.paddingSizeDefault.h,),
-
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,

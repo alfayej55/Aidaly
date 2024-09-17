@@ -239,7 +239,15 @@ class FeedCart extends StatelessWidget {
                 CustomButton(
                   loading: _wishListCtrl.wishListLoading.value,
                   onTap: () {
-                    _wishListCtrl.wishListCollectionCreate();
+                    _wishListCtrl.selectedList.add(homeModel!.id);
+                    print("Add Check>>>${_wishListCtrl.selectedList}");
+
+                    if(_wishListCtrl.selectedList.isNotEmpty){
+                      _wishListCtrl.wishListCollectionCreate('collection');
+                    }else{
+                      print('List Empty');
+                    }
+
                   },
                   text: AppString.addText.tr,
                 )

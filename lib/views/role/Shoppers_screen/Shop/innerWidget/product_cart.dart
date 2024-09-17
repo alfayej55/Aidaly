@@ -98,6 +98,7 @@ class ProductCart extends StatelessWidget {
           //     ),
           //   ),
           // ),
+
           InkWell(
             onTap: onTab,
             child: CustomNetworkImage(

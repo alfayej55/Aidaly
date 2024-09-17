@@ -284,7 +284,7 @@ class _WishListScreenState extends State<WishListScreen> {
                 CustomButton(
                   loading: _wishListCtrl.wishListLoading.value,
                   onTap: () {
-                    _wishListCtrl.wishListCollectionCreate();
+                    _wishListCtrl.wishListCollectionCreate("wishlistId");
                   },
                   text: AppString.addText.tr,
                 )

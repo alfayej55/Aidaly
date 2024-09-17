@@ -23,7 +23,9 @@ class DriverProfileController extends GetxController {
     super.onInit();
   }
 
+
   final rxRequestStatus = Status.loading.obs;
+
   void setRxRequestStatus(Status _value) => rxRequestStatus.value = _value;
 
   Rx<ProfileModel> profilModel = ProfileModel().obs;
@@ -34,7 +36,6 @@ class DriverProfileController extends GetxController {
   TextEditingController addressCtrl = TextEditingController();
   TextEditingController cityCtrl = TextEditingController();
   TextEditingController stateCtrl = TextEditingController();
-
   TextEditingController oldpasswordCtrl = TextEditingController();
   TextEditingController newpassCtrl = TextEditingController();
   TextEditingController confirmpassCtrl = TextEditingController();
@@ -116,8 +117,10 @@ class DriverProfileController extends GetxController {
     }
   }
 
+
   /// Prpfile Change password
   var changePassLoading = false.obs;
+
   changePassword() async {
     changePassLoading(true);
     Map<String, dynamic> body = {
@@ -139,6 +142,8 @@ class DriverProfileController extends GetxController {
     }
   }
 
+
+
   /// Help and Support
   var helpSupportLoading = false.obs;
   helpAndSupport(String email, String describtion) async {
@@ -155,7 +160,8 @@ class DriverProfileController extends GetxController {
       Get.offAllNamed(AppRoutes.driversProfileScreen);
       helpSupportLoading(false);
       update();
-    } else {
+    }
+    else {
       ApiChecker.checkApi(response);
       helpSupportLoading(false);
       update();

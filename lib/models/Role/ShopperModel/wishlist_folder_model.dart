@@ -5,19 +5,23 @@ import 'package:aidaly/models/Role/ShopperModel/shop_subcategori_model.dart';
 class WishListFolderModel {
   WishlistId? wishlistId;
   String? id;
+  ShopperProductModel?collection;
 
   WishListFolderModel({
     this.wishlistId,
+    this.collection,
     this.id,
   });
 
   factory WishListFolderModel.fromJson(Map<String, dynamic> json) => WishListFolderModel(
     wishlistId: json["wishlistId"] == null ? null : WishlistId.fromJson(json["wishlistId"]),
+    collection: json["collection"] == null ? null : ShopperProductModel.fromJson(json["collection"]),
     id: json["_id"],
   );
 
   Map<String, dynamic> toJson() => {
     "wishlistId": wishlistId?.toJson(),
+    "collection": collection?.toJson(),
     "_id": id,
   };
 }
