@@ -217,7 +217,8 @@ class _CommentSectionState extends State<CommentSection> {
                   SizedBox(height: 55.h,),
                   productDetailsCtrl.showReplayLoading.value?Center(child: CustomPageLoading()): productDetailsCtrl.commentReplayModel.isEmpty?Center(child: Align(
                      alignment: Alignment.center,
-                      child: Text('No Replay',style: AppStyles.h3(),)),) :ListView.builder(
+                      child: Text('No Replay',style: AppStyles.h3(),)),) :
+                  ListView.separated(
                     shrinkWrap: true,
                     primary: false,
                     itemCount: productDetailsCtrl.commentReplayModel.length,
@@ -265,7 +266,11 @@ class _CommentSectionState extends State<CommentSection> {
                         ),
                       ),
                     );
-                  }),
+                  },
+                    separatorBuilder: (context,index){
+                      return Divider(color: Get.theme.dividerColor.withOpacity(0.2));
+                    },
+                  ),
 
                   Spacer(),
                   Padding(

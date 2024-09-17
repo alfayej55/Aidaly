@@ -181,7 +181,7 @@ class WishListController extends GetxController {
          createWishListCtrl.clear();
          selectedList.clear();
          wishListFirstLoad();
-         //Get.toNamed(AppRoutes.wishListFolderScreen);
+         Get.offAllNamed(AppRoutes.wishListFolderScreen);
         wishListLoading(false);
          Get.back();
       update();
