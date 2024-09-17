@@ -364,6 +364,10 @@ class _InProgressOrderDetailsState extends State<InProgressOrderDetails> {
     var subTotal = double.parse(_inProgressCtrl.inprogressDetailsModel.value.subTotal!);
     var shippingFee = double.parse(_inProgressCtrl.inprogressDetailsModel.value.shippingFee!);
 
-    return  subTotal+shippingFee;
+
+    var total = subTotal + shippingFee;
+
+    // Return the total with 2 decimal places
+    return total.toStringAsFixed(2);
   }
 }

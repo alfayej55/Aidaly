@@ -73,7 +73,7 @@ class ChangepassWordScreen extends StatelessWidget {
                   CustomTextField(
                     controller: _profileCtrl.oldpasswordCtrl,
                     contentPaddingVertical: 15.h,
-                    isPassword: true,
+                    //isPassword: true,
                     hintText: 'Old Password',
                   ),
                   SizedBox(
