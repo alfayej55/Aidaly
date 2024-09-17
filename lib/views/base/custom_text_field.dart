@@ -71,37 +71,34 @@ class _CustomTextFieldState extends State<CustomTextField> {
         controller: widget.controller,
         keyboardType: widget.keyboardType,
         obscuringCharacter: widget.obscure!,
-        maxLines:widget.maxLine??1,
-        readOnly: widget.readOnly??false,
+        maxLines: widget.maxLine ?? 1,
+        readOnly: widget.readOnly ?? false,
 
-        // validator: widget.validator,
-        validator: widget.validator ??
-            (value) {
-              if (widget.isEmail == null) {
-                if ( value!.isEmpty) {
-                  return "Please enter ${widget.hintText!.toLowerCase()}";
-                } else if (widget.isPassword) {
-                  bool data = AppConstants.passwordValidator.hasMatch(value);
-                  if (value.isEmpty) {
-                    return "Please enter ${widget.hintText!.toLowerCase()}";
-                  } else if (!data) {
-                    return "Insecure password detected.";
-                  }
-                }
-              } else {
-                bool data = AppConstants.emailValidator.hasMatch(value!);
-                if (value.isEmpty) {
-                  return "Please enter ${widget.hintText!.toLowerCase()}";
-                } else if (!data) {
-                  return "Please check your email!";
-                }
+        validator: widget.validator ?? (value) {
+          if (widget.isEmail == null) {
+            if (value!.isEmpty) {
+              return "Please enter ${widget.hintText!.toLowerCase()}";
+            } else if (widget.isPassword) {
+              if (value.length < 8) {
+                return "Password must be at least 8 characters long.";
+              } else if (!AppConstants.passwordValidator.hasMatch(value)) {
+                return "Insecure password detected.";
               }
-              return null;
-            },
+            }
+          } else {
+            bool isValidEmail = AppConstants.emailValidator.hasMatch(value!);
+            if (value.isEmpty) {
+              return "Please enter ${widget.hintText!.toLowerCase()}";
+            } else if (!isValidEmail) {
+              return "Please check your email!";
+            }
+          }
+          return null;
+        },
 
         cursorColor: AppColors.primaryColor,
         obscureText: widget.isPassword ? obscureText : false,
-        style: TextStyle(color:Get.theme.hintColor, fontSize: 16.sp),
+        style: TextStyle(color: Get.theme.hintColor, fontSize: 16.sp),
         onTap: widget.onTap,
         onChanged: widget.onChange,
         decoration: InputDecoration(
@@ -113,18 +110,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
           hintStyle: widget.hindStyle,
           suffixIcon: widget.isPassword
               ? GestureDetector(
-                  onTap: toggle,
-                  child: _suffixIcon(
-                      obscureText ? Icons.visibility_off : Icons.visibility),
-                )
+            onTap: toggle,
+            child: _suffixIcon(
+                obscureText ? Icons.visibility_off : Icons.visibility),
+          )
               : widget.suffixIcon,
           prefixIconConstraints: BoxConstraints(minHeight: 24.w, minWidth: 24.w),
           suffixIconConstraints: BoxConstraints(minHeight: 24.w, minWidth: 24.w),
           labelText: widget.labelText,
-
           hintText: widget.hintText,
         ),
-      ),
+      )
     );
   }
   _suffixIcon(IconData icon) {
