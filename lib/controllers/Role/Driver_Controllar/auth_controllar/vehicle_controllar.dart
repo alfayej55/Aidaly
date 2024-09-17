@@ -30,10 +30,12 @@ import '../../../../service/api_constants.dart';
 
      Map<String, String> body =
      {
+
        'model':modelCtrl.text,
        'year':yearCtrl.text,
        'make':makeCtrl.text,
        'registrationNumber':registerCtrl.text
+
      };
 
      List<MultipartBody> multipartList=[
@@ -56,6 +58,11 @@ import '../../../../service/api_constants.dart';
        modelCtrl.clear();
        yearCtrl.clear();
        makeCtrl.clear();
+       registerCtrl.clear();
+      driverLicenseImage.value='';
+      driverRegistrationImage.value='';
+       driverPoliceCheckImage.value='';
+
        update();
 
      } else {

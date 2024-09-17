@@ -1,7 +1,7 @@
 
 class EarnModel {
-  int? totalEarnign;
-  double? earnThisMonth;
+  dynamic totalEarnign;
+  dynamic earnThisMonth;
 
   EarnModel({
     this.totalEarnign,

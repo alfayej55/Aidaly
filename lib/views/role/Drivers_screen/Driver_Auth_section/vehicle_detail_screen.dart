@@ -247,11 +247,12 @@ class DriverVehicleScreen extends StatelessWidget {
 
               /// Update Button
               SizedBox(height: Dimensions.fontSizeOverLarge,),
-              CustomButton(
-                padding: EdgeInsets.only(bottom: 30.h),
+              Obx(()=>CustomButton(
+                  loading: vehicleCtrl.vechicleLoading.value,
+                  padding: EdgeInsets.only(bottom: 30.h),
                   onTap: (){
                     vehicleCtrl.driverVehicleDetails();
-              }, text: AppString.continuesText.tr)
+                  }, text: AppString.continuesText.tr)),
 
             ],
           )),

@@ -125,7 +125,7 @@ class _BoutiqueHomeScreenState extends State<BoutiqueHomeScreen> {
 
             ///........................... Orders Cart........................
 
-            DashboardOrderCard(dashBoard: _newOrderCtrl.dashBoardModel.value,),
+            _newOrderCtrl.dashBoardModel.value == null ? SizedBox() :DashboardOrderCard(dashBoard: _newOrderCtrl.dashBoardModel.value),
             ///...........................New Order Requests ........................
 
             SizedBox(height: Dimensions.paddingSizeDefault.h),

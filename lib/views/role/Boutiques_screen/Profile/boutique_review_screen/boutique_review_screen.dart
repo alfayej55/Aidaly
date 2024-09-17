@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../../../Utils/app_Image.dart';
 import '../../../../../controllers/Role/BoutiquesControllar/boutique_shopper_review_controller.dart';
 import '../../../../../utils/app_string.dart';
 import '../../../../../utils/style.dart';
@@ -72,7 +73,19 @@ class _BoutiqueShopperReviewScreenState
       body: Obx(() => _reviewCtrl.firstLoading.value
           ? CustomPageLoading():
       _reviewCtrl.boutiqueReviewModelList.isEmpty?
-      Center(child: Text("No Reviews",style:AppStyles.h3(color:AppColors.textColor),))
+      Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image(image: AssetImage(AppImages.addToCartEmptyImage),height: 120.h),
+            SizedBox(height: 15.h,),
+            Text("No Reviews",
+              textAlign: TextAlign.center,
+              style: AppStyles.h3(),),
+          ],
+        ),
+      )
           : SingleChildScrollView(
             child: ListView.separated(
                 padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 15.h),

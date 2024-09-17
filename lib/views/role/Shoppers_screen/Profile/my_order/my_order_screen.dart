@@ -4,8 +4,10 @@ import 'package:aidaly/utils/app_colors.dart';
 import 'package:aidaly/views/base/custom_page_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../../../../../Utils/app_Image.dart';
 import '../../../../../utils/app_string.dart';
 import '../../../../../utils/style.dart';
 import 'my_order_card.dart';
@@ -43,8 +45,18 @@ class ShopperMyOrderScreen extends StatelessWidget {
       ),
 
       body: Obx(() =>  _myOrderCtrl.myOrderLoading.value?CustomPageLoading():
-          _myOrderCtrl.myOrderModel.isEmpty?Center(
-            child: Text('You Have No Orders',style: AppStyles.h3(color: AppColors.textColor),),
+          _myOrderCtrl.myOrderModel.isEmpty?      Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SvgPicture.asset(AppImages.wishlistEmptyImage),
+                SizedBox(height: 15.h,),
+                Text("You Habe No Orders",
+                  textAlign: TextAlign.center,
+                  style: AppStyles.h3(),),
+              ],
+            ),
           ):
       Expanded(
         child: ListView.separated(
