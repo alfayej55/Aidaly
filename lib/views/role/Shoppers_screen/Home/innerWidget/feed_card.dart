@@ -139,7 +139,7 @@ class FeedCart extends StatelessWidget {
                     ),
 
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 15.h,vertical: 10.w),
+                      padding:  EdgeInsets.symmetric(horizontal: 15.h,vertical: 7.w),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

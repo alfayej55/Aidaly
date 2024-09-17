@@ -11,6 +11,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../../../../Utils/app_Image.dart';
 import '../../../../controllers/Role/BoutiquesControllar/my_product_controllar.dart';
 import '../../../../service/api_constants.dart';
 import '../../../../utils/app_colors.dart';
@@ -177,6 +178,18 @@ class _MyProductScreenState extends State<MyProductScreen> {
           ),
         );
       },
-    ):  Center(child: Text('No Product',style: AppStyles.h1(color: Get.theme.primaryColor),));
+    ):    Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image(image: AssetImage(AppImages.addToCartEmptyImage),height: 120.h),
+          SizedBox(height: 15.h,),
+          Text("No Product",
+            textAlign: TextAlign.center,
+            style: AppStyles.h3(),),
+        ],
+      ),
+    );
   }
 }
