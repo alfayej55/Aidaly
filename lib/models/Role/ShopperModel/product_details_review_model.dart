@@ -3,8 +3,8 @@ class ProductCommentModel {
   String? id;
   UserId? userId;
   String? productId;
-  String? height;
-  String? weight;
+  dynamic height;
+  dynamic weight;
   List<ReviewImage>? reviewImage;
   String? rating;
   String? reviews;

@@ -123,12 +123,29 @@ class _CommentSectionState extends State<CommentSection> {
                           ),
                         ),
 
-                        SizedBox(height: Dimensions.paddingSizeExtraSmall.h,),
-
+                   SizedBox(height: 5.h),
+                   Row(
+                     children: [
+                       Text(
+                         'Hight: ${data.height}',
+                         textAlign: TextAlign.start,
+                         maxLines: 9,
+                         overflow: TextOverflow.ellipsis,
+                         style: AppStyles.customSize(size: 12,fontWeight: FontWeight.w400,color:Get.theme.disabledColor),
+                       ),
+                       SizedBox(width: 25.h),
+                       Text(
+                         "Width: ${data.weight}",
+                         textAlign: TextAlign.start,
+                         maxLines: 9,
+                         overflow: TextOverflow.ellipsis,
+                         style: AppStyles.customSize(size: 12,fontWeight: FontWeight.w400,color:Get.theme.disabledColor),
+                       ),
+                     ],
+                   ),
+                        SizedBox(height: 10.h),
 
                         /// .................. Comment and favorite .................>
-
-
 
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
