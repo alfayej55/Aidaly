@@ -166,10 +166,12 @@ class _DriverHomeScreenState extends State<DriverHomeScreen>
               children: [
                 DriverDashboardOrderCard(
                   title: AppString.activeOrders.tr,
+                  image: AppIcons.activeOrderIcon,
                   amount: _newOrderCtrl.dashBoardModel.value.activeOrders !=null?'${_newOrderCtrl.dashBoardModel.value.activeOrders}':'0',
                 ),
                 DriverDashboardOrderCard(
                   title: AppString.completedOrders.tr,
+                  image:AppIcons.completedOrderIcon,
                   amount:
                   _newOrderCtrl.dashBoardModel.value.compliteOrders !=null? '${_newOrderCtrl.dashBoardModel.value.compliteOrders}':"0",
                 )

@@ -10,8 +10,9 @@ import '../../../../utils/style.dart';
 class DriverDashboardOrderCard extends StatelessWidget {
   final String? title;
   final String? amount;
+   String? image;
 
-  DriverDashboardOrderCard({super.key,required this.title,required this.amount,});
+  DriverDashboardOrderCard({super.key,required this.title,required this.amount,this.image});
 
 
   @override
@@ -67,7 +68,7 @@ class DriverDashboardOrderCard extends StatelessWidget {
                 ]
             ),
             child: Center(
-              child: SvgPicture.asset(AppIcons.activeOrderIcon,height: 38.h,width: 38.w,),
+              child: SvgPicture.asset(image!,height: 38.h,width: 38.w,),
             ),
           ),
         )
