@@ -72,27 +72,27 @@ class DriverAddNewBank extends StatelessWidget {
                 controller: _driverwithdrowCtrl.accountNumberCtrl,
                 contentPaddingVertical: 15.h,
               ),
-              SizedBox(height: Dimensions.paddingSizeSmall.h,),
-              Text(
-                AppString.withdrowAmoundText.tr,
-                style: AppStyles.h8(),
-              ),
-              SizedBox(height: Dimensions.paddingSizeSmall.h,),
-              CustomTextField(
-                controller: _driverwithdrowCtrl.amoundCtrl,
-                contentPaddingVertical: 15.h,
-              ),
-              SizedBox(height: Dimensions.paddingSizeSmall.h,),
+              // SizedBox(height: Dimensions.paddingSizeSmall.h,),
+              // Text(
+              //   AppString.withdrowAmoundText.tr,
+              //   style: AppStyles.h8(),
+              // ),
+              // SizedBox(height: Dimensions.paddingSizeSmall.h,),
+              // CustomTextField(
+              //   controller: _driverwithdrowCtrl.amoundCtrl,
+              //   contentPaddingVertical: 15.h,
+              // ),
+              // SizedBox(height: Dimensions.paddingSizeSmall.h,),
 
               /// Add Button
 
               SizedBox(height: 40.h,),
               Obx(()=>  CustomButton(
-                  loading: _driverwithdrowCtrl.withdrowLoading.value,
+                  loading: _driverwithdrowCtrl.bankLoading.value,
                   onTap: (){
-                    _driverwithdrowCtrl.withdrowAmound();
+                    _driverwithdrowCtrl.addBank();
                   },
-                  text:"Withdrow"))
+                  text:"Withdraw"))
 
             ],
           ),

@@ -8,6 +8,7 @@ import 'package:aidaly/service/api_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../models/Role/bankinfo_model.dart';
 import '../../../models/Role/withdrow_model.dart';
 
 class DriverWithdroController extends GetxController{
@@ -18,6 +19,7 @@ class DriverWithdroController extends GetxController{
 
   Rx<EarnModel> earneModelList=EarnModel().obs;
   RxList<WithdeowModel> withrdrowModelList=<WithdeowModel>[].obs;
+  RxList<BankInfoModel> newBankList=<BankInfoModel>[].obs;
 
   var earningLoading=false.obs;
 
@@ -79,4 +81,48 @@ class DriverWithdroController extends GetxController{
     }
   }
 
+
+
+  /// Driver Add Bank
+
+  var bankLoading=false.obs;
+
+  addBank()async{
+    bankLoading(true);
+
+    var body={
+      "bankName":bankNameCtrl.text,
+      "accountNumber":accountNumberCtrl.text,
+    };
+
+    var response= await ApiClient.postData(ApiConstant.boutiqueAddNewBankEndPoint, jsonEncode(body));
+    if(response.statusCode==200){
+      newBankInfo();
+      Get.back();
+      bankLoading(false);
+      update();
+    }else{
+      ApiChecker.checkApi(response);
+      bankLoading(false);
+      update();
+    }
+  }
+
+
+  var bankinfoLoading=false.obs;
+
+  newBankInfo()async{
+    bankinfoLoading(true);
+
+    var response=await ApiClient.getData(ApiConstant.boutiqueShowBankOfuserEndPoint);
+    if(response.statusCode==200){
+      newBankList.value=List<BankInfoModel>.from(response.body['data']['attributes'].map((x) => BankInfoModel.fromJson(x)));
+      bankinfoLoading(false);
+      update();
+    }else{
+      ApiChecker.checkApi(response);
+      bankinfoLoading(false);
+      update();
+    }
+  }
 }

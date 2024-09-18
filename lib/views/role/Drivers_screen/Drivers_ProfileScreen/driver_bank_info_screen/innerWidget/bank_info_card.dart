@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../../../../models/Role/bankinfo_model.dart';
 import '../../../../../../utils/app_Image.dart';
 import '../../../../../../utils/style.dart';
 
 
-class BoutiqueBankInfoCard extends StatelessWidget {
-  const BoutiqueBankInfoCard({super.key});
+class DriverBankInfoCard extends StatelessWidget {
+  BankInfoModel? bankModdel;
+   DriverBankInfoCard({super.key,this.bankModdel});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class BoutiqueBankInfoCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Bank of America',style: AppStyles.customSize(size: 15,),),
+                Text(bankModdel!.bankName.toString(),style: AppStyles.customSize(size: 15,),),
                 Container(
                   height: 33.h,
                   width: 54.5.w,
@@ -49,7 +51,7 @@ class BoutiqueBankInfoCard extends StatelessWidget {
             ),
             SizedBox(height: 10.h,),
             Text('Account Number',style: AppStyles.customSize(size: 10,fontWeight: FontWeight.w400),),
-            Text('Ending with****1234',style: AppStyles.customSize(size: 16,fontWeight: FontWeight.w500,color: Get.theme.primaryColor),)
+            Text('Ending with***${bankModdel!.bnakAccountNumber}',style: AppStyles.customSize(size: 16,fontWeight: FontWeight.w500,color: Get.theme.primaryColor),)
           ],
         ),
 
