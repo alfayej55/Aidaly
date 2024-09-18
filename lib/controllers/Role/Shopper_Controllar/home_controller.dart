@@ -170,7 +170,7 @@ class HomeController extends GetxController  implements GetxService{
 
   searchProduct(String productName)async{
     searchLoading(true);
-    var response=await ApiClient.getData('${ApiConstant.shopperSearchEndPoint}?search=$productName');
+    var response=await ApiClient.getData('${ApiConstant.shopperSearchEndPoint}?name=$productName');
     if(response.statusCode==200){
       profileListModel.value= List<ProfileModel>.from(response.body['data']['attributes'].map((x) => ProfileModel.fromJson(x)));
       searchLoading(false);

@@ -46,7 +46,7 @@ class ApiConstant{
   static String  paymentCheckoutEndPoint="/order/makeOrder";
  // static String  shopperHomeEndPoint="/product/allProducts"; // old end point
   static String  shopperHomeEndPoint="/admin/showBoutiqueForpromation";
-  static String  shopperSearchEndPoint="/product/searchProduct";
+  static String  shopperSearchEndPoint="/admin/showBoutiqueForpromation";
   static String  myOrderEndPoint="/order/showOrderedOfShoper";
   static String  wishListAddEndPoint="/iswish/addwishlist";
   static String  allWishListGetEndPoint="/iswish/getAllWishlist";
