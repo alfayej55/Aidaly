@@ -150,6 +150,7 @@ class _MyAppState extends State<MyApp>with WidgetsBindingObserver {
                 transitionDuration: const Duration(milliseconds: 500),
                 getPages: AppRoutes.page,
                 initialRoute: AppRoutes.splashScreen,
+
               );
 
             }

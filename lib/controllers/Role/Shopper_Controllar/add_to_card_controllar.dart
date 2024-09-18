@@ -63,11 +63,11 @@ class AddToCartControllar extends GetxController{
 
   RxInt productQuantity=1.obs;
   RxInt quantity = 1.obs;
-  RxDouble subTotalPrice = 0.0.obs;
-  RxDouble serviceFee = 5.0.obs;
-  RxDouble shippintFee = 0.0.obs;
+  RxDouble subTotalPrice = 0.00.obs;
+  RxDouble serviceFee = 5.00.obs;
+  RxDouble shippintFee = 0.00.obs;
 
-  RxDouble taxPrice = 7.0.obs;
+  RxDouble taxPrice = 7.00.obs;
   RxDouble totalPrice = 00.0.obs;
 
   var orderCheckoutId='';

@@ -92,7 +92,7 @@ class BoutiqueAddNewBank extends StatelessWidget {
                    _boutiquewithCtrl.addBank();
                    //_boutiquewithCtrl.withdrowAmound();
                  },
-                 text:"Withdrow"))
+                 text:"Withdraw"))
           
             ],
           ),

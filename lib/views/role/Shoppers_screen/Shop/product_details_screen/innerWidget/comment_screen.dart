@@ -126,21 +126,21 @@ class _CommentSectionState extends State<CommentSection> {
                    SizedBox(height: 5.h),
                    Row(
                      children: [
-                       Text(
+                     data.height !=""?  Text(
                          'Hight: ${data.height}',
                          textAlign: TextAlign.start,
                          maxLines: 9,
                          overflow: TextOverflow.ellipsis,
                          style: AppStyles.customSize(size: 12,fontWeight: FontWeight.w400,color:Get.theme.disabledColor),
-                       ),
+                       ) :SizedBox(),
                        SizedBox(width: 25.h),
-                       Text(
+                      data.weight !=""? Text(
                          "Width: ${data.weight}",
                          textAlign: TextAlign.start,
                          maxLines: 9,
                          overflow: TextOverflow.ellipsis,
                          style: AppStyles.customSize(size: 12,fontWeight: FontWeight.w400,color:Get.theme.disabledColor),
-                       ),
+                       ):SizedBox(),
                      ],
                    ),
                         SizedBox(height: 10.h),
@@ -234,7 +234,7 @@ class _CommentSectionState extends State<CommentSection> {
                   SizedBox(height: 55.h,),
                   productDetailsCtrl.showReplayLoading.value?Center(child: CustomPageLoading()): productDetailsCtrl.commentReplayModel.isEmpty?Center(child: Align(
                      alignment: Alignment.center,
-                      child: Text('No Replay',style: AppStyles.h3(),)),) :
+                      child: Text('No Comments',style: AppStyles.h3(),)),) :
                   ListView.separated(
                     shrinkWrap: true,
                     primary: false,
@@ -299,7 +299,7 @@ class _CommentSectionState extends State<CommentSection> {
                         Expanded(
                             child: CustomTextField(
                                 contentPaddingVertical: 15.h,
-                                hintText: 'Type Replay',
+                                hintText: 'Type Reply',
                                 controller: productDetailsCtrl.replayCntrl
                             )),
 

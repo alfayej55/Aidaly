@@ -73,7 +73,7 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
               children: [
                 Image.asset(AppImages.addToCartEmptyImage,fit: BoxFit.fitHeight,height: 200.h,width:double.infinity,),
               SizedBox(height: 30.h,),
-                Text('Your Cart is empty,time start adding!',
+                Text('Your cart is empty',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: AppStyles.h3())

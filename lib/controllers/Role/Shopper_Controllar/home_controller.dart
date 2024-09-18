@@ -31,7 +31,6 @@ class HomeController extends GetxController  implements GetxService{
   var totalPage=0;
   var currentPage=0;
 
-
   /// filter Section
 
   RxList<bool> select = <bool>[].obs;
@@ -84,6 +83,7 @@ class HomeController extends GetxController  implements GetxService{
         setRxRequestStatus(Status.internetError);
 
       } else
+
       {
         setRxRequestStatus(Status.error);
       }

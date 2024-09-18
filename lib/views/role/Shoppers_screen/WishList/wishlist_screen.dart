@@ -153,7 +153,7 @@ class _WishListScreenState extends State<WishListScreen> {
                children: [
                  SvgPicture.asset(AppImages.wishlistEmptyImage),
                  SizedBox(height:10.h,),
-                 Text("Add items to start a WishList",style: AppStyles.h4(),)
+                 Text("Add Items to Start a Wishlist",style: AppStyles.h4(),)
                ],
              ),
             
