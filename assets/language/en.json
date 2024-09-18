@@ -51,6 +51,7 @@
   "waitlistText": "Thank you for your interest in joining the DapperDriver community. We are currently expanding in your area! We will add you to our waitlist. See you soon!",
   "setLocationText": "Set Location",
   "subsetLocationText": "Set location for delivery purposes",
+
   "userCurrentLocationText": "User Current Location",
   "setFromMapText": "Set From Map",
   "accountSuccessText": "Account Created Successfully",

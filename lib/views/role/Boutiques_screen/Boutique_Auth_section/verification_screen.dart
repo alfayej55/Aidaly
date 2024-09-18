@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:aidaly/utils/app_string.dart';
 import 'package:aidaly/utils/style.dart';
 import 'package:aidaly/views/base/custom_button.dart';
@@ -11,9 +13,14 @@ import '../../../../controllers/Role/BoutiquesControllar/auth_controllar/boutiqu
 import '../../../../helpers/route.dart';
 import '../../../../utils/app_colors.dart';
 
-class BoutiqueVerificationScreen extends StatelessWidget {
+class BoutiqueVerificationScreen extends StatefulWidget {
   BoutiqueVerificationScreen({super.key});
 
+  @override
+  State<BoutiqueVerificationScreen> createState() => _BoutiqueVerificationScreenState();
+}
+
+class _BoutiqueVerificationScreenState extends State<BoutiqueVerificationScreen> {
   TextEditingController pinCodeCtrl = TextEditingController();
 
   BoutiqueSignUpControllar signUpCtrl=Get.put(BoutiqueSignUpControllar());
@@ -21,6 +28,42 @@ class BoutiqueVerificationScreen extends StatelessWidget {
   var verifaiEmail=Get.arguments;
 
   final formKey = GlobalKey<FormState>();
+
+
+  int _start = 150;
+  Timer _timer = Timer(Duration(seconds: 1), () {
+  });
+
+  startTimer() {
+    print("Start Time$_start");
+    print("Start Time$_timer");
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_start > 0) {
+          _start--;
+        }else{
+          _timer.cancel();
+        }
+      });
+    });
+  }
+
+  String get timerText {
+    int minutes = _start ~/ 60;
+    int seconds = _start % 60;
+    return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+  }
+
+  @override
+  void initState() {
+    super.initState();
+   // startTimer();
+  }
+  @override
+  void dispose() {
+   // _timer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +138,8 @@ class BoutiqueVerificationScreen extends StatelessWidget {
                   onTap: (){
                     signUpCtrl.boutiqueResentOtp(verifaiEmail);
                   },
-                  child:signUpCtrl.resentOtpLoading.value?CustomPageLoading(): Align(
+                  child:signUpCtrl.resentOtpLoading.value?CustomPageLoading():
+                  Align(
                       alignment: Alignment.center,
                       child: Text(AppString.reSentCodeText.tr, style: AppStyles.h8(color: Get.theme.primaryColor)))),
 
