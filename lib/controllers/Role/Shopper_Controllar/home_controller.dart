@@ -240,7 +240,7 @@ class HomeController extends GetxController  implements GetxService{
   var response= await wishListCtrl.addWishListProduct(id);
 
     if(response.runtimeType !=int){
-      homeModel.value[index].wishlist =! homeModel.value[index].wishlist;
+     // homeModel.value[index].wishlist =! homeModel.value[index].wishlist;
       homeModel.refresh();
     }
 

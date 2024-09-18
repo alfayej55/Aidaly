@@ -34,11 +34,11 @@ class FeedCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Get.toNamed(AppRoutes.productDetailsScreen,arguments: homeModel!.id!,parameters: {"size":homeModel!.variants![0].size!});
+       // Get.toNamed(AppRoutes.productDetailsScreen,arguments: homeModel!.id!,parameters: {"size":homeModel!.variants![0].size!});
       },
       child: CustomNetworkImage(
         imageUrl:
-        "${ApiConstant.imageBaseUrl}${homeModel!.firstImage!.publicFileUrl}",
+        "${ApiConstant.imageBaseUrl}${homeModel!.promotionImage!.publicFileUrl}",
         borderRadius: BorderRadius.circular(18.r),
         height: 500.h,
         width: 357.w,
@@ -64,9 +64,9 @@ class FeedCart extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: (){
-                          //_wishListCtrl.selectedList.add(homeModel!.id);
-                          showCreateFeild(context);
-                        //  Get.toNamed(AppRoutes.productDetailsScreen,arguments: homeModel!.id!,parameters: {"size":homeModel!.variants![0].size!});
+                          Get.toNamed(AppRoutes.boutiqueScreen,
+                              arguments: homeModel!.id!);
+                         // showCreateFeild(context);
                         },
                         child: AddProductButton(
                           height: 50.h,
@@ -76,16 +76,17 @@ class FeedCart extends StatelessWidget {
                           icon: AppIcons.addButtonIcon,
                         ),
                       ),
-                      GestureDetector(
-                        onTap: onTap,
-                        child: AddProductButton(
-                          height: 50.h,
-                          width: 50.w,
-                          iconheight: 30.h,
-                          iconwidth: 30.w,
-                          icon: AppIcons.wishListIcon,color: homeModel!.wishlist? Get.theme.primaryColor:Colors.white,
-                        ),
-                      ),
+
+                      // GestureDetector(
+                      //   onTap: onTap,
+                      //   child: AddProductButton(
+                      //     height: 50.h,
+                      //     width: 50.w,
+                      //     iconheight: 30.h,
+                      //     iconwidth: 30.w,
+                      //     icon: AppIcons.wishListIcon,color: homeModel!.wishlist? Get.theme.primaryColor:Colors.white,
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
@@ -143,16 +144,15 @@ class FeedCart extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-
                           InkWell(
                             onTap: () {
                               Get.toNamed(AppRoutes.boutiqueScreen,
-                                  arguments: homeModel!.userId!.id!);
+                                  arguments: homeModel!.id!);
                             },
                             child: Row(
                               children: [
                                 CustomNetworkImage(
-                                    imageUrl: '${ApiConstant.imageBaseUrl}${homeModel!.userId!.image!.publicFileUrl}',
+                                    imageUrl: '${ApiConstant.imageBaseUrl}${homeModel!.image!.publicFileUrl}',
                                     height: 30.h,
                                     width: 30.w,
                                    boxShape: BoxShape.circle,
@@ -160,7 +160,7 @@ class FeedCart extends StatelessWidget {
 
                                 SizedBox(width: 10.w,),
                                 Text(
-                                  '${homeModel!.userId!.name}',
+                                  '${homeModel!.name}',
                                   style: AppStyles.customSize(size: 17,fontWeight: FontWeight.w400,
                                       underlineColor:AppColors.secandaryTextColor,
                                       fontstyle: FontStyle.italic,
@@ -170,7 +170,7 @@ class FeedCart extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Text('\$${homeModel!.userId!.rate}',
+                          Text('\$${homeModel!.rate}',
                               style: AppStyles.customSize(size: 26,
                                 color: AppColors.whiteColor,
                                 family:'Poppins',

@@ -44,7 +44,8 @@ class ApiConstant{
   static String  shopProductCommentEndPoint="/review/getReviewForProduct/";
   static String  shopProductAddCommentEndPoint="/review/createReview";
   static String  paymentCheckoutEndPoint="/order/makeOrder";
-  static String  shopperHomeEndPoint="/product/allProducts";
+ // static String  shopperHomeEndPoint="/product/allProducts"; // old end point
+  static String  shopperHomeEndPoint="/admin/showBoutiqueForpromation";
   static String  shopperSearchEndPoint="/product/searchProduct";
   static String  myOrderEndPoint="/order/showOrderedOfShoper";
   static String  wishListAddEndPoint="/iswish/addwishlist";

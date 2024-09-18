@@ -235,7 +235,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             padding: EdgeInsets.symmetric(vertical: 15.h),
                             child: FeedCart(
                               onTap: (){
-                                _homeCtrl.addWishlist(data.id!, index);
+                                //_homeCtrl.addWishlist(data.id!, index);
                               },
                               homeModel: data,),
                           ),
