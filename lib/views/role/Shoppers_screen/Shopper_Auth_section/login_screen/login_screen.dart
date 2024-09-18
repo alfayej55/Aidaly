@@ -179,9 +179,9 @@ class ShopperLoginScreen extends StatelessWidget {
               ),
               SizedBox(height: 20.h,),
              Obx(()=> Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               mainAxisAlignment: MainAxisAlignment.center,
                children: [
-                 SocialLoginButton(icon: AppIcons.facebookIcon,),
+                // SocialLoginButton(icon: AppIcons.facebookIcon,),
                  InkWell(
                      onTap: (){
                        _otherLogingCtrl.googleLogin("shopper");
@@ -189,6 +189,7 @@ class ShopperLoginScreen extends StatelessWidget {
                      child: SocialLoginButton(
                        loading: _otherLogingCtrl.googleLoginLoading.value,
                        icon: AppIcons.googleIcon,)),
+                 SizedBox(width: 25.w,),
                  SocialLoginButton(icon: AppIcons.appleIcon,)
                ],
              ),),

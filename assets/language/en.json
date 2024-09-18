@@ -15,6 +15,7 @@
    "myOrderText":"My Orders",
 
 
+
    "subShoppersText":"Create your account and begin shopping",
    "boutiquesText":"Boutiques",
    "subBoutiquesText":"Create your store and share it with the community",
@@ -26,15 +27,15 @@
    "oTPCodeText":"OTP Code",
    "reSentCodeText":"Resend Again?",
 
-
    "subloginText":"To continue to the app, please enter login information",
 
-   "autherAccountText":"I don’t have an account? ",
+   "autherAccountText":"Don’t have an account? ",
+
    "signInRouteText":"Already have an account? ",
    "emaiUpText":"Email",
 
    "singUpText":"Sign Up",
-   "subsingUpText":"To part of the app, please enter the signup information",
+   "subsingUpText":"To part of the app, please enter the required information",
    "passwordText":"Password",
 
 
