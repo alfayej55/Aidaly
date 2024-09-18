@@ -54,14 +54,18 @@ class BoutiqueAddNewBank extends StatelessWidget {
                 AppString.bankNameText.tr,
                 style: AppStyles.h8(),
               ),
+
               SizedBox(height: Dimensions.paddingSizeSmall.h,),
               CustomTextField(
                 controller: _boutiquewithCtrl.bankNameCtrl,
                 contentPaddingVertical: 15.h,
           
               ),
+
               SizedBox(height: Dimensions.paddingSizeSmall.h,),
-          /// Bank Account
+
+            /// Bank Account
+
               Text(
                 AppString.accountNumberText.tr,
                 style: AppStyles.h8(),
@@ -71,7 +75,9 @@ class BoutiqueAddNewBank extends StatelessWidget {
                 controller: _boutiquewithCtrl.accountNumberCtrl,
                 contentPaddingVertical: 15.h,
               ),
+
               SizedBox(height: Dimensions.paddingSizeSmall.h,),
+
               // Text(
               //   AppString.withdrowAmoundText.tr,
               //   style: AppStyles.h8(),
@@ -81,6 +87,7 @@ class BoutiqueAddNewBank extends StatelessWidget {
               //   controller: _boutiquewithCtrl.amoundCtrl,
               //   contentPaddingVertical: 15.h,
               // ),
+
               SizedBox(height: Dimensions.paddingSizeSmall.h,),
           
               /// Add Button
