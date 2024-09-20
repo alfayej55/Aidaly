@@ -149,9 +149,11 @@ class BoutiqueSignUpControllar extends GetxController{
       update();
     }
     else{
+
       ApiChecker.checkApi(response);
       resentOtpLoading.value=false;
       update();
+
     }
   }
 

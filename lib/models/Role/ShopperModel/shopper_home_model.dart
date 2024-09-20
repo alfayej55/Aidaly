@@ -610,7 +610,7 @@ class ShopperHomeModel {
   String? city;
   String? rate;
   String? rating;
-  int? earnedMoney;
+  dynamic earnedMoney;
   String? description;
   String? state;
   String? status;

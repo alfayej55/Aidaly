@@ -4,6 +4,7 @@ import 'package:aidaly/utils/app_string.dart';
 import 'package:aidaly/utils/style.dart';
 import 'package:aidaly/views/base/custom_button.dart';
 import 'package:aidaly/views/base/custom_page_loading.dart';
+import 'package:aidaly/views/base/show_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -30,9 +31,8 @@ class _BoutiqueVerificationScreenState extends State<BoutiqueVerificationScreen>
   final formKey = GlobalKey<FormState>();
 
 
-  int _start = 150;
-  Timer _timer = Timer(Duration(seconds: 1), () {
-  });
+  int _start = 180; // 3 minutes in seconds
+  Timer _timer = Timer(Duration(seconds: 1), () {});
 
   startTimer() {
     print("Start Time$_start");
@@ -41,7 +41,7 @@ class _BoutiqueVerificationScreenState extends State<BoutiqueVerificationScreen>
       setState(() {
         if (_start > 0) {
           _start--;
-        }else{
+        } else {
           _timer.cancel();
         }
       });
@@ -54,14 +54,15 @@ class _BoutiqueVerificationScreenState extends State<BoutiqueVerificationScreen>
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
   }
 
+
   @override
   void initState() {
     super.initState();
-   // startTimer();
+   startTimer();
   }
   @override
   void dispose() {
-   // _timer.cancel();
+    _timer.cancel();
     super.dispose();
   }
 
@@ -134,9 +135,24 @@ class _BoutiqueVerificationScreenState extends State<BoutiqueVerificationScreen>
                 height: 10.h,
               ),
 
-              GestureDetector(
+              Align(
+                alignment: Alignment.center,
+                  child: Text(timerText,style: AppStyles.h3(color: AppColors.primaryColor),)),
+              SizedBox(height: 5.h,),
+
+              timerText == 00.00? SizedBox(): GestureDetector(
                   onTap: (){
-                    signUpCtrl.boutiqueResentOtp(verifaiEmail);
+
+                    if(timerText=="00:00"){
+                      setState(() {
+                        _start=180;
+                        startTimer();
+                        signUpCtrl.boutiqueResentOtp(verifaiEmail);
+                      });
+                    }
+                    else{
+                      showToastMessage.showMessage("Please wait 3 minute");
+                    }
                   },
                   child:signUpCtrl.resentOtpLoading.value?CustomPageLoading():
                   Align(
