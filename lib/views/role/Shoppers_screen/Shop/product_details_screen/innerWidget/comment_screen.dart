@@ -127,7 +127,7 @@ class _CommentSectionState extends State<CommentSection> {
                    Row(
                      children: [
                      data.height !=""?  Text(
-                         'Hight: ${data.height}',
+                         'Height: ${data.height}',
                          textAlign: TextAlign.start,
                          maxLines: 9,
                          overflow: TextOverflow.ellipsis,
@@ -135,7 +135,7 @@ class _CommentSectionState extends State<CommentSection> {
                        ) :SizedBox(),
                        SizedBox(width: 25.h),
                       data.weight !=""? Text(
-                         "Width: ${data.weight}",
+                         "Weigth: ${data.weight}",
                          textAlign: TextAlign.start,
                          maxLines: 9,
                          overflow: TextOverflow.ellipsis,
