@@ -125,13 +125,25 @@ class _MyProductScreenState extends State<MyProductScreen> {
                         height: 211.h,
                         width:160.w,
                       ),
-                      // Positioned(
-                      //   top: 10.h,
-                      //   right: 16.w,
-                      //   child: AddProductButton(
-                      //     icon: AppIcons.editIcon,
-                      //   ),
-                      // ),
+                      Positioned(
+                        top: 10.h,
+                        right: 16.w,
+
+                        child: InkWell(
+                          onTap: (){
+
+                            myproductCtrl.removeProduct(data.id!);
+                            setState(() {
+
+                            });
+                          },
+                          child: AddProductButton(
+                            icon: AppIcons.deletIcon,
+                            color: Colors.red,
+
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: Dimensions.paddingSizeExtraSmall,),

@@ -78,6 +78,7 @@ class ApiConstant{
   static String  boutiqueShopperReviewEndPoint="/review/showAllReviewOfbotique";
   static String  boutiqueAddNewBankEndPoint="/withdrow/addBankAccount";
   static String  boutiqueShowBankOfuserEndPoint="/withdrow/showBankOfuser";
+  static String  boutiquMyProductDeletEndPoint="/product/deleteProduct";
 
 
   ///>>>>>>>>>>>>>>>>>>>>>>>>>>> Driver End Point >>>>>>>>>>>>>>>>>>>

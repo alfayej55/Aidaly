@@ -40,5 +40,19 @@ class BoutiqueMyProductControllar extends GetxController{
     }
   }
 
+  removeProduct(String id)async{
+
+    var response=await ApiClient.patchData('${ApiConstant.boutiquMyProductDeletEndPoint}?id=$id');
+
+    if(response.statusCode==200){
+      boutiquemyProduct();
+      myProductModel.refresh();
+
+    }else{
+      ApiChecker.checkApi(response);
+    }
+
+  }
+
 
 }
