@@ -104,6 +104,7 @@ class _BoutiqueDetailsState extends State<BoutiqueDetails> {
                             SvgPicture.asset(AppIcons.shareIcon,height: 16.h,width: 16.w,color:AppColors.textColor,),
                             SizedBox(width:20.w,),
                             Text(
+
                               boutiqueDetailsCtrl.boutiqueDetailsModel.value.data!.attributes!.boutiqueUser!.name!,
                               style: AppStyles.customSize(
                                   size: 18.2,
@@ -153,7 +154,6 @@ class _BoutiqueDetailsState extends State<BoutiqueDetails> {
             ),
           ),
 
-
           // Stack(
           //   //alignment: Alignment.bottomCenter,
           //   clipBehavior: Clip.none,
@@ -194,7 +194,8 @@ class _BoutiqueDetailsState extends State<BoutiqueDetails> {
 
           ///===================== Boutique Categoric  ===================>
 
-          Expanded(
+
+          boutiqueDetailsCtrl.boutiqueDetailsModel.value.data!.attributes!.products!.isNotEmpty?  Expanded(
             child: MasonryGridView.count(
               physics: AlwaysScrollableScrollPhysics(),
               padding:EdgeInsets.symmetric(horizontal:24.w),
@@ -218,7 +219,7 @@ class _BoutiqueDetailsState extends State<BoutiqueDetails> {
                   product:productInfo,);
               },
             ),
-          ),
+          ):SizedBox()
 
         ],
       );

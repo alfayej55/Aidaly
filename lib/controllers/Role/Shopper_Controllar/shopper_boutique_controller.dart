@@ -58,7 +58,6 @@ class ShopperBoutiqueDetailsControllar extends GetxController{
 
   /// added wish list
 
-
   final WishListController wishListController = Get.put(WishListController());
 
      addWishList(String productId, int index)async{
