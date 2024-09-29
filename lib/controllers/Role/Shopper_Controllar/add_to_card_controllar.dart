@@ -64,7 +64,9 @@ class AddToCartControllar extends GetxController{
   RxInt productQuantity=1.obs;
   RxInt quantity = 1.obs;
   RxDouble subTotalPrice = 0.00.obs;
-  RxDouble serviceFee = 5.00.obs;
+ // RxDouble serviceFee = 5.00.obs;
+  RxDouble serviceFee = 0.00.obs;
+  //RxDouble shippintFee = 0.00.obs;
   RxDouble shippintFee = 0.00.obs;
 
   RxDouble taxPrice = 7.00.obs;
@@ -133,21 +135,21 @@ class AddToCartControllar extends GetxController{
   }
 
   /// Shipping Calculation
-
    shippingCalculateFare(double miles) {
-    double baseFare = 10.0;
-    if (miles <= 5) {
-      shippintFee.value= double.parse(baseFare.toStringAsFixed(2));
-     
 
-      print('Shippin Fee>> ${shippintFee.value}');
+    if(shippintFee != 0.00){
+      double baseFare = 10.0;
+      if (miles <= 5) {
+        shippintFee.value= double.parse(baseFare.toStringAsFixed(3));
+        print('Shippin Fee>> ${shippintFee.value}');
 
-      update();
-    } else {
-      shippintFee.value = double.parse((baseFare + (miles - 5)).toStringAsFixed(2));
-      print('Shippin Fee>> ${shippintFee.value}');
+        update();
+      } else {
+        shippintFee.value = double.parse((baseFare + (miles - 5)).toStringAsFixed(3));
+        print('Shippin Fee>> ${shippintFee.value}');
 
-      update();
+        update();
+      }
     }
 
     totalPriceCalculation();
@@ -305,7 +307,27 @@ class AddToCartControllar extends GetxController{
   }
 
 
+  
+  /// delivery Charge
 
+  var deliveryCharchLoading=false.obs;
+  deliveryCharch()async{
+    deliveryCharchLoading(true);
+
+    var response=await ApiClient.getData(ApiConstant.deliveryChargeEndPoint);
+    if(response.statusCode==200){
+      serviceFee.value=double.parse(response.body['data']['attributes']['chargeFee']);
+      shippintFee.value=double.parse(response.body['data']['attributes']['delivaryFee']);
+      print('Charge>>>>>${ serviceFee.value}');
+      deliveryCharchLoading(false);
+      update();
+    }else{
+      ApiChecker.checkApi(response);
+      deliveryCharchLoading(false);
+      update();
+    }
+    
+  }
 
 
 

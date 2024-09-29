@@ -36,6 +36,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
     addCartCtrl.estimatedTimeGet();
     addCartCtrl.getCurrentLocation();
 
+
     // TODO: implement initState
     super.initState();
   }
@@ -217,10 +218,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                 alignment: Alignment.center,
                 child: CustomButton(
                   onTap: ()async{
-
-
                        PaymentService().makePayment(amount: addCartCtrl.totalPrice.toInt(), currency: 'usd', packageID: '123', paymentType: 'card');
-
 
                      // await paymentCtrl.initPaymentSheet();
                      // await Stripe.instance.presentPaymentSheet();

@@ -57,6 +57,7 @@ class ApiConstant{
   static String  commentLikeEndPoint="/review/makeLike";
   static String  commentReplayEndPoint="/review/makeComment";
   static String  commentReplayShowEndPoint="/review/showComments";
+  static String  deliveryChargeEndPoint="/admin/showDeliveryCharge";
 
 ///>>>>>>>>>>>>>>>>>>>>>>>>>>> Boutiquee End Point >>>>>>>>>>>>>>>>>>>
 

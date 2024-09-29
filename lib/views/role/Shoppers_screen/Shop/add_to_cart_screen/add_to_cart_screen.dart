@@ -36,6 +36,7 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
   void initState() {
     addTocartCtrl.getData();
     addTocartCtrl.firstTimeGetUserLocation();
+    addTocartCtrl.deliveryCharch();
     // TODO: implement initState
     super.initState();
   }
@@ -234,10 +235,11 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
                             AppString.serviceFeeText.tr,
                             style: AppStyles.h5(),
                           ),
-                          Text(
+                    
+                          Obx(()=>      addTocartCtrl.deliveryCharchLoading.value?SizedBox(): Text(
                             '\$${addTocartCtrl.serviceFee}',
                             style: AppStyles.customSize(size: 20),
-                          ),
+                          ),)
                         ],
                       ),
           
@@ -252,7 +254,7 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
                             style: AppStyles.h5(),
                           ),
                           Obx(
-                            () => Text(
+                            () =>addTocartCtrl.deliveryCharchLoading.value?SizedBox(): Text(
                               '\$${addTocartCtrl.shippintFee}',
                               style: AppStyles.customSize(size: 20),
                             ),
