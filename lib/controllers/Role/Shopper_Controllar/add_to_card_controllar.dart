@@ -183,7 +183,7 @@ class AddToCartControllar extends GetxController{
       print('Error occurred: $e');
     }
   }
-
+/// hjfahjdjhadshakjhha
   Future getCurrentLocation() async {
     try {
       LocationPermission permission = await Geolocator.requestPermission();
