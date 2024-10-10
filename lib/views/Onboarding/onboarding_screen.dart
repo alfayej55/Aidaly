@@ -34,6 +34,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       'title':AppString.onboardingText2.tr,
       'subTitle':AppString.subonboardingText2.tr,
       'image':AppImages.onboardingImage2
+      // 'image':AppImages.fashionImage
     },
     {
       'title':AppString.onboardingText3.tr,
@@ -115,16 +116,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ContinueCustomButton(
                   onTap: (){
                     if(currentIndex==2){
-                      
                      Get.offNamed(AppRoutes.roleSelectScreen);
-
                     }
                     else{
-
                       pageCtrl.nextPage(duration: Duration(seconds: 1),curve:Curves.easeOutExpo);
-
                     }
-
                   },
                   
                 )

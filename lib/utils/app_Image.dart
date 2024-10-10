@@ -37,6 +37,7 @@ class AppImages{
   static String emptyCartImage='$baseUrl/404_page.png';
   static String addToCartEmptyImage='$baseUrl/empty_cart.png';
   static String wishlistEmptyImage='$baseUrl/wishlist_empty.svg';
+  static String fashionImage='$baseUrl/fashion image.jpeg';
 
 
   static String productUnderReviewImage='$baseUrl/product_underReview_image.svg';

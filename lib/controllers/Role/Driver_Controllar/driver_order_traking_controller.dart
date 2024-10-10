@@ -274,6 +274,7 @@ class DriverOrderTrackingControllar extends GetxController {
       markerList.add(
         Marker(
           markerId: MarkerId('1'),
+
           position: LatLng(latitude.value, longitude.value),
           infoWindow: InfoWindow(
             title: 'Driver',
@@ -282,6 +283,7 @@ class DriverOrderTrackingControllar extends GetxController {
           onDragEnd: (value) {
             // value is the new position
           },
+
           icon: BitmapDescriptor.fromBytes(driverMarkerIcon),
         ),
       );

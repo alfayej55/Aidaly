@@ -51,7 +51,7 @@ class AddToCartControllar extends GetxController{
   RxDouble shopperLatitude= 0.0.obs;
   RxDouble shopperLongitude= 0.0.obs;
 
-   RxString shopperAddress=''.obs;
+    RxString shopperAddress=''.obs;
 
   RxList<String> sizes=<String>[].obs;
   RxString selectedSize=''.obs;
@@ -318,6 +318,7 @@ class AddToCartControllar extends GetxController{
     if(response.statusCode==200){
       serviceFee.value=double.parse(response.body['data']['attributes']['chargeFee']);
       shippintFee.value=double.parse(response.body['data']['attributes']['delivaryFee']);
+      totalPriceCalculation();
       print('Charge>>>>>${ serviceFee.value}');
       deliveryCharchLoading(false);
       update();

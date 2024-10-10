@@ -79,6 +79,7 @@ class HomeController extends GetxController  implements GetxService{
       firstLoading(false);
       update();
     } else{
+
       if (ApiClient.noInternetMessage == response.statusText) {
         setRxRequestStatus(Status.internetError);
 
@@ -91,7 +92,6 @@ class HomeController extends GetxController  implements GetxService{
       ApiChecker.checkApi(response);
       firstLoading.value=false;
       update();
-
     }
 
   }
@@ -225,11 +225,9 @@ class HomeController extends GetxController  implements GetxService{
       update();
     }
     else{
-
       ApiChecker.checkApi(response);
       filterLoading(false);
       update();
-
     }
   }
 
