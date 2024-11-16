@@ -8,7 +8,7 @@ import 'package:aidaly/utils/message.dart';
 import 'package:aidaly/views/Splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-
+import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -20,7 +20,6 @@ import 'package:get/get.dart';
 
 import 'controllers/localization_controller.dart';
 import 'controllers/theme_controller.dart';
-import 'firebase_options.dart';
 import 'helpers/di.dart' as di;
 import 'helpers/prefs_helper.dart';
 import 'helpers/push_notification_helpers.dart';
@@ -46,7 +45,6 @@ void main()async {
 
   /// Socket
   SocketApi.init();
-
 
 
   /// Firebase push notification Section
@@ -150,7 +148,6 @@ class _MyAppState extends State<MyApp>with WidgetsBindingObserver {
                 transitionDuration: const Duration(milliseconds: 500),
                 getPages: AppRoutes.page,
                 initialRoute: AppRoutes.splashScreen,
-
               );
 
             }

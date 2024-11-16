@@ -77,7 +77,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
             return   ListTile(
               contentPadding: EdgeInsets.symmetric(horizontal: 24.w),
               leading: SvgPicture.asset(data.countryFlag,width: 30.w,height: 18.h,),
-              title: Text(data.languageName!,style: AppStyles.customSize(size: 16,color: AppColors.textColor),),
+              title: Text(data.languageName,style: AppStyles.customSize(size: 16,color: AppColors.textColor),),
               trailing: Radio<int>(
                 value: index,
                 groupValue: selectedOption,

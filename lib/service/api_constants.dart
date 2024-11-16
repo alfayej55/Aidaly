@@ -5,12 +5,12 @@ class ApiConstant{
   static String estimatedTimeUrl="https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&";
 
    // static String baseUrl="http://192.168.10.168:3030/api/v1";// local
-  //  static String baseUrl="https://ecommace-app.onrender.com/api/v1";// Arif vai
+   // static String baseUrl="https://ecommace-app.onrender.com/api/v1";// Arif vai
 
   static String baseUrl="http://dapperdriver.com:3030/api/v1";// live
 
  // static String  imageBaseUrl="http://192.168.10.168:3030"; //Local
-  //static String  imageBaseUrl="https://ecommace-app.onrender.com"; //Arif vai
+ // static String  imageBaseUrl="https://ecommace-app.onrender.com"; //Arif vai
 
   static String  imageBaseUrl="http://dapperdriver.com:3030"; //LIVE
 

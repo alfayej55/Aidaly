@@ -21,6 +21,8 @@ class SocketApi {
 
   ///<------------------------- Socket Initialization ---------------->
   static void init() {
+
+
     debugPrint(
         '=============> Socket initialization, connected: ${socket.connected}');
     if (!socket.connected) {
@@ -38,6 +40,8 @@ class SocketApi {
   ///<------------------------- Socket Client ---------------->
 
   static IO.Socket socket = IO.io(
+    //  'https://ecommace-app.onrender.com',
+
      // "http://192.168.10.168:3030", //lOCAL
        "http://dapperdriver.com:3030",//LIVE
     IO.OptionBuilder().setTransports(['websocket'])
@@ -45,7 +49,7 @@ class SocketApi {
     //    .enableForceNewConnection()
     //    .setTimeout(5000)
     //    .setReconnectionDelay(10000)
-    //    .enableReconnection()
+     // .enableReconnection()
     // .setQuery(<dynamic, dynamic>{'token': Environment.token})
         .build(),
   );

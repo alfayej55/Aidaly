@@ -33,8 +33,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     {
       'title':AppString.onboardingText2.tr,
       'subTitle':AppString.subonboardingText2.tr,
-      'image':AppImages.onboardingImage2
-      // 'image':AppImages.fashionImage
+      //'image':AppImages.onboardingImage2
+       'image':AppImages.fashionImage
     },
     {
       'title':AppString.onboardingText3.tr,
