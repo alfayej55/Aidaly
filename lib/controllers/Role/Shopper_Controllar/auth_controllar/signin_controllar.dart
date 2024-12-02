@@ -6,7 +6,7 @@ import 'package:aidaly/service/api_constants.dart';
 import 'package:aidaly/utils/enamdata.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -53,17 +53,20 @@ class SignInControllar extends GetxController {
         await PrefsHelper.setString(AppConstants.bearerToken, response.body['data']['token']);
         await PrefsHelper.setString(AppConstants.userRoles, response.body['data']['attributes']['role']);
         await PrefsHelper.setString(AppConstants.userId, response.body['data']['attributes']['_id']);
-        Fluttertoast.showToast(msg: response.body['message']);
+       // Fluttertoast.showToast(msg: response.body['message']);
+        showToastMessage.showMessage(response.body['message']);
         emailCtrl.clear();
         passwordCtrl.clear();
         Get.toNamed(AppRoutes.homeScreen);
       } else {
-        Fluttertoast.showToast(msg: 'User Not Found');
+        showToastMessage.showMessage('User Not Found');
+       // Fluttertoast.showToast(msg: 'User Not Found');
       }
       loading.value = false;
       update();
     } else {
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg: response.body['message']);
       ApiChecker.checkApi(response);
       loading.value = false;
       update();
@@ -80,7 +83,8 @@ class SignInControllar extends GetxController {
         ApiConstant.shopperforgotpasswordEndPoint, jsonEncode(body),
         headers: headers);
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg: response.body['message']);
       Get.toNamed(AppRoutes.forgotPassOtpScreen,
           arguments: forgotEmailCtrl.text);
       loading.value = false;
@@ -103,7 +107,8 @@ class SignInControllar extends GetxController {
         ApiConstant.shopperOtpVerificationPoint, jsonEncode(body),
         headers: headers);
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+      //Fluttertoast.showToast(msg: response.body['message']);
       print('Body Get:${response.body}');
 
       // await  PrefsHelper.setString(AppConstants.bearerToken, response.body['data']['attributes']['accessToken']);
@@ -131,7 +136,8 @@ class SignInControllar extends GetxController {
     Response response = await ApiClient.postData(
         ApiConstant.shopperChangeEndPoint, jsonEncode(body));
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg: response.body['message']);
       forgotEmailCtrl.clear();
       newPassSetCtrl.clear();
       Get.offAllNamed(AppRoutes.loginScreen);

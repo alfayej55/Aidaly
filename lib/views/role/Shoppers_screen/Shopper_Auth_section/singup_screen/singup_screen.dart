@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:aidaly/utils/app_Image.dart';
 import 'package:aidaly/utils/app_colors.dart';
 import 'package:aidaly/utils/app_icons.dart';
-import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

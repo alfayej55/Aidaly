@@ -5,9 +5,10 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:aidaly/helpers/route.dart';
+import 'package:aidaly/views/base/show_toast.dart';
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:image_picker/image_picker.dart';
@@ -110,7 +111,8 @@ class AddNewProductControllar extends GetxController{
     );
 
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg:response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+      //Fluttertoast.showToast(msg:response.body['message']);
       priceCtrl.clear();
       priceCtrl.clear();
       inventoryCtrl.clear();

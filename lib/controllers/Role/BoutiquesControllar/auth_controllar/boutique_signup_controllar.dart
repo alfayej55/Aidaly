@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -16,6 +16,7 @@ import '../../../../helpers/route.dart';
 import '../../../../service/api_check.dart';
 import '../../../../service/api_client.dart';
 import '../../../../service/api_constants.dart';
+import '../../../../views/base/show_toast.dart';
 
 class BoutiqueSignUpControllar extends GetxController{
 
@@ -75,7 +76,8 @@ class BoutiqueSignUpControllar extends GetxController{
     );
 
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg:response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+      //Fluttertoast.showToast(msg:response.body['message']);
       Get.toNamed(AppRoutes.boutiquevarificationScreen,arguments:emailCtrl.text);
       boutiqueNameCtrl.clear();
       emailCtrl.clear();
@@ -114,7 +116,8 @@ class BoutiqueSignUpControllar extends GetxController{
     var headers = {'Content-Type': 'application/json'};
     Response response=await ApiClient.postData(ApiConstant.shopperOtpVerificationPoint, jsonEncode(body),headers: headers);
     if(response.statusCode==200){
-      Fluttertoast.showToast(msg:response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg:response.body['message']);
       await  PrefsHelper.setString(AppConstants.bearerToken, response.body['data']['attributes']['accessToken']);
       await PrefsHelper.setString(AppConstants.userId, response.body['data']['attributes']['id']);
       Get.toNamed(AppRoutes.boutiquelocationScreen);
@@ -143,7 +146,8 @@ class BoutiqueSignUpControllar extends GetxController{
     Response response=await ApiClient.postData(ApiConstant.shopperResentOtpEndPoint, jsonEncode(body));
 
     if(response.statusCode==200){
-      Fluttertoast.showToast(msg:response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg:response.body['message']);
 
       resentOtpLoading.value=false;
       update();
@@ -165,8 +169,8 @@ class BoutiqueSignUpControllar extends GetxController{
     };
     Response response=await ApiClient.postData(ApiConstant.shopperSetLocationEndPoint, jsonEncode(body));
     if(response.statusCode==200){
-
-      Fluttertoast.showToast(msg:response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+      //Fluttertoast.showToast(msg:response.body['message']);
       // PrefsHelper.setString(AppConstants.bearerToken, response.body[''])
       Get.toNamed(AppRoutes.boutiqueaccountSuccessScreen);
 

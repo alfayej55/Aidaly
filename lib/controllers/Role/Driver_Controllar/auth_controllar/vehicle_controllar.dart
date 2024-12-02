@@ -1,13 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../helpers/route.dart';
 import '../../../../service/api_check.dart';
 import '../../../../service/api_client.dart';
 import '../../../../service/api_constants.dart';
+import '../../../../views/base/show_toast.dart';
 
  class VehicleControllar extends GetxController{
 
@@ -51,8 +52,8 @@ import '../../../../service/api_constants.dart';
      );
 
      if (response.statusCode == 200) {
-
-       Fluttertoast.showToast(msg:response.body['message']);
+       showToastMessage.showMessage(response.body['message']);
+       //Fluttertoast.showToast(msg:response.body['message']);
        Get.toNamed(AppRoutes.driverslocationScreen);
        vechicleLoading.value=false;
        modelCtrl.clear();

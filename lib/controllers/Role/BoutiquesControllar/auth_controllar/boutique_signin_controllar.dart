@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:aidaly/utils/enamdata.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +14,7 @@ import '../../../../helpers/route.dart';
 import '../../../../service/api_check.dart';
 import '../../../../service/api_client.dart';
 import '../../../../service/api_constants.dart';
+import '../../../../views/base/show_toast.dart';
 
 class BoutiqueSignInControllar extends GetxController {
   TextEditingController emailCtrl = TextEditingController();
@@ -55,13 +56,16 @@ class BoutiqueSignInControllar extends GetxController {
         await PrefsHelper.setString(AppConstants.bearerToken, response.body['data']['token']);
         await PrefsHelper.setString(AppConstants.userRoles, response.body['data']['attributes']['role']);
         await PrefsHelper.setString(AppConstants.userId, response.body['data']['attributes']['_id']);
-        Fluttertoast.showToast(msg: response.body['message']);
+
+        showToastMessage.showMessage(response.body['message']);
+       // Fluttertoast.showToast(msg: response.body['message']);
         emailCtrl.clear();
         passwordCtrl.clear();
         Get.toNamed(AppRoutes.homeBoutique);
       } else {
         print('gafdsdsfafkj');
-        Fluttertoast.showToast(msg: 'User Not Found');
+        showToastMessage.showMessage(response.body['message']);
+        //Fluttertoast.showToast(msg: 'User Not Found');
       }
       loading.value = false;
       update();
@@ -83,7 +87,9 @@ class BoutiqueSignInControllar extends GetxController {
         ApiConstant.shopperforgotpasswordEndPoint, jsonEncode(body),
         headers: headers);
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+
+      showToastMessage.showMessage(response.body['message']);
+      //Fluttertoast.showToast(msg: response.body['message']);
       Get.toNamed(AppRoutes.boutiqueForgotvarificationScreen,
           arguments: forgotEmailCtrl.text);
       loading.value = false;
@@ -107,7 +113,8 @@ class BoutiqueSignInControllar extends GetxController {
         headers: headers);
     if (response.statusCode == 200) {
 
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg: response.body['message']);
       print('Body Get:${response.body}');
 
       Get.toNamed(AppRoutes.boutiquesetNewPasswordScreen);
@@ -134,7 +141,9 @@ class BoutiqueSignInControllar extends GetxController {
     Response response = await ApiClient.postData(
         ApiConstant.shopperChangeEndPoint, jsonEncode(body));
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg: response.body['message']);
       forgotEmailCtrl.clear();
       newPassSetCtrl.clear();
       Get.offAllNamed(AppRoutes.boutiqueloginScreen);

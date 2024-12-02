@@ -5,12 +5,13 @@ import 'package:aidaly/utils/app_string.dart';
 import 'package:aidaly/utils/style.dart';
 import 'package:aidaly/views/base/cache_network_image.dart';
 import 'package:aidaly/views/base/divaider.dart';
+import 'package:aidaly/views/base/show_toast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -159,7 +160,8 @@ class AssignedDetails extends StatelessWidget {
                     }
 
                     else{
-                      Fluttertoast.showToast(msg: 'Order In progress');
+                      showToastMessage.showMessage('Order In progress');
+                     // Fluttertoast.showToast(msg: 'Order In progress');
                     }
 
                   },

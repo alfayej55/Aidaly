@@ -1,7 +1,10 @@
 class ApiConstant{
 /// google maps
 
-  static String googleBaseUrl="https://maps.googleapis.com/maps/api/place/autocomplete/json";
+ // STRIPE_PUBLISH_KEY="pk_test_51NJDjwIu2LkK2RA4xxN8nGcfNYQ2T3ixTDYfJo7ZjYD2uIhrta4KwG5ZW4pFc0GcrA5lYzGjvvZgDjvRHwMYqBiC00TdqJ2sc7"
+ // STRIPE_SECRET_KEY="sk_test_51NJDjwIu2LkK2RA4JKgv1NjXyb7pqeMUYbLpVslE4WbPLKqNT1SvhKUOZZsDYwreTu5OtgWTmnjFjTUDWBvHcvVS00AyKnOi3I"
+
+ static String googleBaseUrl="https://maps.googleapis.com/maps/api/place/autocomplete/json";
   static String estimatedTimeUrl="https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&";
 
    // static String baseUrl="http://192.168.10.168:3030/api/v1";// local
@@ -104,7 +107,6 @@ class ApiConstant{
   static String driverOrderTrackingUpdate(String orderId)=> "/orderTracking/openTracker/$orderId";
   static String driverVehicleUpdate = "/user/updatedVehical";
   static String driverGetVehicleEndPoint = "/user/vehicalDetails";
-
 
 
   static String  boutiqueEarnEndPoint="/card/boutiqueEarned";

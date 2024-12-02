@@ -4,7 +4,7 @@ import 'dart:io';
 
 import 'package:aidaly/helpers/route.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/get_rx.dart';
 import 'package:image_picker/image_picker.dart';
@@ -13,6 +13,7 @@ import '../../../models/Role/DriverModel/driver_vehicle_details.model.dart';
 import '../../../service/api_check.dart';
 import '../../../service/api_client.dart';
 import '../../../service/api_constants.dart';
+import '../../../views/base/show_toast.dart';
 
 class VehicleUpdateControllar extends GetxController{
 
@@ -95,7 +96,8 @@ class VehicleUpdateControllar extends GetxController{
     );
 
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg: response.body['message']);
       Get.offAllNamed(AppRoutes.driversProfileScreen);
       vechicleLoading.value = false;
       update();

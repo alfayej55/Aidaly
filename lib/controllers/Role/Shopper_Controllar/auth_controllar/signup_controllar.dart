@@ -6,8 +6,9 @@ import 'dart:io';
 import 'package:aidaly/Utils/app_constants.dart';
 import 'package:aidaly/helpers/prefs_helper.dart';
 import 'package:aidaly/helpers/route.dart';
+import 'package:aidaly/views/base/show_toast.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/get_rx.dart';
@@ -71,14 +72,13 @@ class RegisterControllar extends GetxController{
     );
 
     if (response.statusCode == 200) {
-
-      Fluttertoast.showToast(msg:response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg:response.body['message']);
 
       await  PrefsHelper.setString(AppConstants.bearerToken, response.body['data']['attributes']['accessToken']);
       await PrefsHelper.setString(AppConstants.userId, response.body['data']['attributes']['id']);
       Get.toNamed(AppRoutes.locationScreen);
       // Get.toNamed(AppRoutes.shopperverificationScreen,arguments:emailCtrl.text);
-
 
       fullNameCtrl.clear();
       emailCtrl.clear();
@@ -95,7 +95,6 @@ class RegisterControllar extends GetxController{
     } else {
 
       print('Error>>${response.body['message']}');
-
     // Fluttertoast.showToast(msg:response.body['message']);
       ApiChecker.checkApi(response);
       signUpLoading(false);
@@ -117,7 +116,8 @@ class RegisterControllar extends GetxController{
     var headers = {'Content-Type': 'application/json'};
     Response response=await ApiClient.postData(ApiConstant.shopperOtpVerificationPoint, jsonEncode(body),headers: headers);
     if(response.statusCode==200){
-      Fluttertoast.showToast(msg:response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg:response.body['message']);
      await  PrefsHelper.setString(AppConstants.bearerToken, response.body['data']['attributes']['accessToken']);
       await PrefsHelper.setString(AppConstants.userId, response.body['data']['attributes']['id']);
       Get.toNamed(AppRoutes.locationScreen);
@@ -145,7 +145,8 @@ class RegisterControllar extends GetxController{
     Response response=await ApiClient.postData(ApiConstant.shopperResentOtpEndPoint, jsonEncode(body));
 
     if(response.statusCode==200){
-      Fluttertoast.showToast(msg:response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+      //Fluttertoast.showToast(msg:response.body['message']);
       resentOtpLoading.value=false;
       update();
     }
@@ -165,7 +166,8 @@ class RegisterControllar extends GetxController{
     Response response=await ApiClient.postData(ApiConstant.shopperSetLocationEndPoint, jsonEncode(body));
     if(response.statusCode==200){
 
-      Fluttertoast.showToast(msg:response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg:response.body['message']);
       // PrefsHelper.setString(AppConstants.bearerToken, response.body[''])
       Get.toNamed(AppRoutes.accountSuccessScreen);
 

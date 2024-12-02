@@ -4,7 +4,7 @@ import 'package:aidaly/models/Role/dashboard_model.dart';
 import 'package:aidaly/service/api_check.dart';
 import 'package:aidaly/utils/enamdata.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/get_rx.dart';
 
@@ -13,6 +13,7 @@ import '../../../models/Role/BoutiqueModel/boutique_order_details_model.dart';
 import '../../../models/Role/DriverModel/new_order_details.dart';
 import '../../../service/api_client.dart';
 import '../../../service/api_constants.dart';
+import '../../../views/base/show_toast.dart';
 
 class DriverHomeController extends GetxController{
 
@@ -156,7 +157,8 @@ class DriverHomeController extends GetxController{
 
     var response=await  ApiClient.patchData('${ApiConstant.drivernewOrderAcceptEndPoint}/$orderId');
     if(response.statusCode==200){
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg: response.body['message']);
       acceptOrderLoading.value=false;
       update();
       Get.back();
@@ -178,7 +180,8 @@ class DriverHomeController extends GetxController{
     var body={};
     var response=await ApiClient.postData('${ApiConstant.drivernewOrderCencellEndPoint}/$id', body);
     if(response.statusCode==200){
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+      //Fluttertoast.showToast(msg: response.body['message']);
       cancelOrderLoading.value=false;
       update();
       Get.back();

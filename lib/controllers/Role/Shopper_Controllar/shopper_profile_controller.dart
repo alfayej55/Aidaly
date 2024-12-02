@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
@@ -17,6 +17,7 @@ import '../../../service/api_check.dart';
 import '../../../service/api_client.dart';
 import '../../../service/api_constants.dart';
 import '../../../utils/enamdata.dart';
+import '../../../views/base/show_toast.dart';
 
 class ShopperProfileController extends GetxController{
 
@@ -119,7 +120,8 @@ class ShopperProfileController extends GetxController{
     );
 
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg:response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg:response.body['message']);
 
       fullNameCtrl.clear();
       emailCtrl.clear();
@@ -153,7 +155,8 @@ class ShopperProfileController extends GetxController{
     var response = await ApiClient.patchData(ApiConstant.changePasswordEndPoint,
         body: body);
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+      //Fluttertoast.showToast(msg: response.body['message']);
       oldpasswordCtrl.clear();
       newpassCtrl.clear();
       confirmpassCtrl.clear();
@@ -182,7 +185,8 @@ class ShopperProfileController extends GetxController{
     var response=await ApiClient.postData(ApiConstant.helpSupportEndPoint, jsonEncode(body));
     if(response.statusCode==200){
 
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+      //Fluttertoast.showToast(msg: response.body['message']);
       Get.offAllNamed(AppRoutes.profileScreen);
       helpSupportLoading(false);
       update();

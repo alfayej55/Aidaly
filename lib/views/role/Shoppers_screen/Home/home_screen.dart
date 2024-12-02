@@ -218,18 +218,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 _homeCtrl.refressLoad();
               },
                 child:  ListView.builder(
-                  itemCount: _homeCtrl.homeModel.value.length + 1,
+                  itemCount: _homeCtrl.homeModel.length + 1,
                   controller: _homeCtrl.scrollController,
                   shrinkWrap: true,
                   primary: false,
                //   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
-                    if (index >=  _homeCtrl.homeModel.value.length) {
+                    if (index >=  _homeCtrl.homeModel.length) {
                       return _homeCtrl.firstLoading.value
                           ? CustomPageLoading()
                           : SizedBox();
                     } else {
-                      var data =  _homeCtrl.homeModel.value[index];
+                      var data =  _homeCtrl.homeModel[index];
                       return GestureDetector(
                           child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 15.h),

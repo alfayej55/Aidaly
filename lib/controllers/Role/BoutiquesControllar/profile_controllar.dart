@@ -6,7 +6,7 @@ import 'package:aidaly/Utils/app_constants.dart';
 import 'package:aidaly/helpers/prefs_helper.dart';
 import 'package:aidaly/utils/enamdata.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -15,6 +15,7 @@ import '../../../models/Role/profile_model.dart';
 import '../../../service/api_check.dart';
 import '../../../service/api_client.dart';
 import '../../../service/api_constants.dart';
+import '../../../views/base/show_toast.dart';
 import '../../../views/role/Boutiques_screen/bottomMenu_screen/bottom_menu_screen.dart';
 
 class BoutiqueProfileControllar extends GetxController{
@@ -121,7 +122,9 @@ class BoutiqueProfileControllar extends GetxController{
     );
 
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg:response.body['message']);
+
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg:response.body['message']);
 
       boutiqueNameCtrl.clear();
       emailCtrl.clear();
@@ -157,7 +160,8 @@ class BoutiqueProfileControllar extends GetxController{
     var response=await ApiClient.patchData(ApiConstant.changePasswordEndPoint,body: body);
     if(response.statusCode==200){
 
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+      //Fluttertoast.showToast(msg: response.body['message']);
       Get.offAllNamed(AppRoutes.boutiqueProfileScreen);
       changePassLoading(false);
       update();
@@ -184,7 +188,8 @@ class BoutiqueProfileControllar extends GetxController{
     var response=await ApiClient.postData(ApiConstant.helpSupportEndPoint, jsonEncode(body));
     if(response.statusCode==200){
 
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+      //Fluttertoast.showToast(msg: response.body['message']);
       Get.offAllNamed(AppRoutes.boutiqueProfileScreen);
       helpSupportLoading(false);
       update();

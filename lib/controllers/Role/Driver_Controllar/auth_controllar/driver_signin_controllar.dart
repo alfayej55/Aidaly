@@ -3,7 +3,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import '../../../../Utils/app_constants.dart';
@@ -14,6 +14,7 @@ import '../../../../service/api_check.dart';
 import '../../../../service/api_client.dart';
 import '../../../../service/api_constants.dart';
 import '../../../../utils/enamdata.dart';
+import '../../../../views/base/show_toast.dart';
 
 class DriverSignInControllar extends GetxController{
 
@@ -51,12 +52,14 @@ class DriverSignInControllar extends GetxController{
         await PrefsHelper.setString(AppConstants.bearerToken, response.body['data']['token']);
         await PrefsHelper.setString(AppConstants.userRoles, response.body['data']['attributes']['role']);
         await PrefsHelper.setString(AppConstants.userId, response.body['data']['attributes']['_id']);
-        Fluttertoast.showToast(msg: response.body['message']);
+        showToastMessage.showMessage(response.body['message']);
+        //Fluttertoast.showToast(msg: response.body['message']);
         emailCtrl.clear();
         passwordCtrl.clear();
         Get.toNamed(AppRoutes.driversHomeScreen);
       }else {
-        Fluttertoast.showToast(msg: 'User Not Found');
+        showToastMessage.showMessage('User Not Found');
+        //Fluttertoast.showToast(msg: 'User Not Found');
       }
       loading.value = false;
       update();
@@ -80,7 +83,10 @@ class DriverSignInControllar extends GetxController{
         ApiConstant.shopperforgotpasswordEndPoint, jsonEncode(body),
         headers: headers);
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+
+      showToastMessage.showMessage(response.body['message']);
+      // Fluttertoast.showToast(msg: response.body['message']);
+
       Get.toNamed(AppRoutes.driverforgotOtpScreen,
           arguments: forgotEmailCtrl.text);
       loading.value = false;
@@ -103,7 +109,8 @@ class DriverSignInControllar extends GetxController{
         ApiConstant.shopperOtpVerificationPoint, jsonEncode(body),
         headers: headers);
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+    //  Fluttertoast.showToast(msg: response.body['message']);
       print('Body Get:${response.body}');
 
       // await  PrefsHelper.setString(AppConstants.bearerToken, response.body['data']['attributes']['accessToken']);
@@ -132,7 +139,8 @@ class DriverSignInControllar extends GetxController{
     Response response = await ApiClient.postData(
         ApiConstant.shopperChangeEndPoint, jsonEncode(body));
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+    //  Fluttertoast.showToast(msg: response.body['message']);
 
       forgotEmailCtrl.clear();
       newPassCtrl.clear();

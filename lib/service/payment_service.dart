@@ -156,6 +156,7 @@ class PaymentService {
           'Authorization': 'Bearer sk_test_51NJDjwIu2LkK2RA4JKgv1NjXyb7pqeMUYbLpVslE4WbPLKqNT1SvhKUOZZsDYwreTu5OtgWTmnjFjTUDWBvHcvVS00AyKnOi3I',
           'Content-Type': 'application/x-www-form-urlencoded'
         },
+
       );
       print("Payment Intent body ${response.body}");
       debugPrint("Payment Intent body ${response.body}");

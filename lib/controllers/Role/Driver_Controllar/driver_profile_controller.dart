@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:aidaly/models/Role/profile_model.dart';
 import 'package:aidaly/utils/enamdata.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -14,6 +14,7 @@ import '../../../helpers/route.dart';
 import '../../../service/api_check.dart';
 import '../../../service/api_client.dart';
 import '../../../service/api_constants.dart';
+import '../../../views/base/show_toast.dart';
 
 class DriverProfileController extends GetxController {
   @override
@@ -100,7 +101,8 @@ class DriverProfileController extends GetxController {
     );
 
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+    //  Fluttertoast.showToast(msg: response.body['message']);
 
       driverProfileEditLoaditn.value = false;
       fullNameCtrl.clear();
@@ -131,7 +133,8 @@ class DriverProfileController extends GetxController {
     var response = await ApiClient.patchData(ApiConstant.changePasswordEndPoint,
         body: body);
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg: response.body['message']);
       Get.offAllNamed(AppRoutes.driversloginScreen);
       changePassLoading(false);
       update();
@@ -156,7 +159,8 @@ class DriverProfileController extends GetxController {
     var response = await ApiClient.postData(
         ApiConstant.helpSupportEndPoint, jsonEncode(body));
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+      showToastMessage.showMessage(response.body['message']);
+     // Fluttertoast.showToast(msg: response.body['message']);
       Get.offAllNamed(AppRoutes.driversProfileScreen);
       helpSupportLoading(false);
       update();

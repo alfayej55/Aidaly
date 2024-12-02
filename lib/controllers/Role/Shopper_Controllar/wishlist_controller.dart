@@ -6,7 +6,7 @@ import 'package:aidaly/service/api_check.dart';
 import 'package:aidaly/service/api_client.dart';
 import 'package:aidaly/service/api_constants.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import '../../../helpers/route.dart';
@@ -42,7 +42,8 @@ class WishListController extends GetxController {
     var response = await ApiClient.postData(
         ApiConstant.wishListAddEndPoint, jsonEncode(body));
     if (response.statusCode == 200) {
-      Fluttertoast.showToast(msg: response.body['message']);
+
+      //Fluttertoast.showToast(msg: response.body['message']);
       return response.body;
     } else {
       ApiChecker.checkApi(response);

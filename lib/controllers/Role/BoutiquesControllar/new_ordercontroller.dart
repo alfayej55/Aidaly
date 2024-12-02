@@ -5,7 +5,6 @@ import 'package:aidaly/models/Role/BoutiqueModel/boutique_dashboard_model.dart';
 import 'package:aidaly/service/api_client.dart';
 import 'package:aidaly/service/api_constants.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart'as http;
 import '../../../Utils/app_constants.dart';

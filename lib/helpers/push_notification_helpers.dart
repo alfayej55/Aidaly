@@ -435,7 +435,6 @@ class NotificationHelper {
       //
       //
       initLocalNotification(message: message);
-
       showTextNotification(
         title: message.notification!.title!,
         body: message.notification!.body!,

@@ -1,5 +1,4 @@
 
-
 import 'dart:async';
 import 'dart:convert';
 
@@ -9,7 +8,7 @@ import 'package:aidaly/helpers/route.dart';
 import 'package:aidaly/models/add_to_cart_model.dart';
 import 'package:aidaly/views/base/show_toast.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
@@ -377,10 +376,13 @@ var loading=false.obs;
       update();
     }
     else if(response.statusCode==401){
-      Fluttertoast.showToast(msg: 'Product Not Aviable');
+      showToastMessage.showMessage('Product Not Aviable');
+      //Fluttertoast.showToast(msg: 'Product Not Aviable');
     }
     else {
-      Fluttertoast.showToast(msg: response.body['message']);
+
+      showToastMessage.showMessage('Product Not Aviable');
+      //Fluttertoast.showToast(msg: response.body['message']);
       ApiChecker.checkApi(response);
       loading.value = false;
       update();
